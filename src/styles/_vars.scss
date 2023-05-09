@@ -1,0 +1,30 @@
+/* stylelint-disable color-function-notation */
+/* stylelint-disable alpha-value-notation */
+
+:root {
+    // base
+    --font-family: "Montserrat", sans-serif;
+    --content-width: 1240px;
+    --content-fluid-width: 1790px;
+    --container-offset: 15px;
+    --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+    --container-fluid-width: calc(var(--content-fluid-width) + (var(--container-offset) * 2));
+
+    // colors
+    --white: #fff;
+    --black: #000000;
+
+    --accent: #05376C;
+    --warning: #fff4d4;
+    --danger: #f58128;
+    --skyblue: #e5eaf0;
+    --light: #e0e0e0;
+    --gray: #f8f8f8;
+
+    --main-bg: var(--white);
+
+    // scrollbar
+    --main-scrollbar-width: 6px;
+    --main-scrollbar-color: var(--white);
+    --main-scrollbar-thumb-color: var(--accent);
+  }
