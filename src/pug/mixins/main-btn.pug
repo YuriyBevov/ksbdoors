@@ -1,0 +1,5 @@
+mixin main-btn(data)
+  if data.url
+    a(href= data.url).main-btn!= data.title
+  else
+    button.main-btn!= data.title

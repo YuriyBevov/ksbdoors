@@ -4,22 +4,20 @@
 :root {
     // base
     --font-family: "Montserrat", sans-serif;
-    --content-width: 1240px;
+    --content-width: 1440px;
     --content-fluid-width: 1790px;
     --container-offset: 15px;
     --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
     --container-fluid-width: calc(var(--content-fluid-width) + (var(--container-offset) * 2));
 
     // colors
-    --white: #fff;
+    --white: #ffffff;
     --black: #000000;
 
-    --accent: #05376C;
-    --warning: #fff4d4;
-    --danger: #f58128;
-    --skyblue: #e5eaf0;
-    --light: #e0e0e0;
-    --gray: #f8f8f8;
+    --accent: #f6dfb5;
+    --warning: #d1be99;
+    --danger: #f09926;
+
 
     --main-bg: var(--white);
 

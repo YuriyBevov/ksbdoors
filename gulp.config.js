@@ -3,7 +3,7 @@ const BUILD_PATH = 'build/';
 
 let isProd = false; // dev by default
 let isHtmlMin = false; // html minify
-let isPugEnabled = false; // html by default
+let isPugEnabled = true; // html by default
 let isVueEnabled = false; // vue.js
 
 const PATHS = {
