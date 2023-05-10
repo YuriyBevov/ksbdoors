@@ -1,0 +1,5 @@
+.features {
+  &__list {
+    @extend .lw-info-card-list;
+  }
+}

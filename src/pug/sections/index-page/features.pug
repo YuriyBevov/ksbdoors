@@ -1,0 +1,52 @@
+include ../../mixins/section-title
+include ../../mixins/info-card
+
+section.features.lw-alt-bg
+  .lw-container
+    +section-title({
+      tag: 'h1',
+      title: '<span>Преимущества</span>'
+    })
+
+    ul.features__list
+      li
+        +info-card({
+          icon: 'user',
+          title: 'Индивидуальный подход',
+          text: 'Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения.'
+        })
+
+      li
+        +info-card({
+          icon: 'machine',
+          title: 'Собственное высокоточное оборудование',
+          text: 'Недостаток контента'
+        })
+
+      li
+        +info-card({
+          icon: 'installation',
+          title: 'Автоматизированая линия <br>с контролем ОТК',
+          text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum laudantium id error. Tenetur quam sequi minima maiores quis, earum cupiditate mollitia quod deserunt, quibusdam maxime quisquam molestias repellat neque aperiam.'
+        })
+
+      li
+        +info-card({
+          icon: 'price',
+          title: 'Цены от производителя',
+          text: 'Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения.'
+        })
+
+      li
+        +info-card({
+          icon: 'calendar',
+          title: 'Запуск в производство в день заказа',
+          text: 'Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения.'
+        })
+
+      li
+        +info-card({
+          icon: 'guarantee',
+          title: 'Гарантия, сервисное обслуживание',
+          text: 'Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения.'
+        })

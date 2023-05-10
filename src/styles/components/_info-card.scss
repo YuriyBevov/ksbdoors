@@ -1,0 +1,45 @@
+.info-card {
+  @extend .flex-column;
+  padding: 25px;
+
+  @include m-b-desktop-down {
+    padding:  25px 20px;
+  }
+
+  @include m-b-tablet-down {
+    padding: 15px;
+  }
+
+  svg {
+    fill: var(--warning);
+    margin-bottom: 20px;
+
+    @include m-b-tablet-down {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  span {
+    display: inline-block;
+    font-weight: 600;
+    min-height: 40px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+
+    @include m-b-tablet-down {
+      font-size: 14px;
+    }
+
+    @include m-b-mobile-lg-down {
+      min-height: initial;
+      margin-bottom: 15px;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-color);
+  }
+}

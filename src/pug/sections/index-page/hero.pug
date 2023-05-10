@@ -1,0 +1,30 @@
+include ../../mixins/section-title
+include ../../mixins/main-btn
+
+section.hero
+  .lw-container.hero__container
+
+    .hero__underlay-bg(aria-hidden="true")
+
+    .hero__content
+      .hero__content-side
+        +section-title({
+          tag: 'h1',
+          title: 'Производство  <span>дверей</span>'
+        })
+
+        p.hero__text Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения.
+
+        ul.hero__list
+          li Противопожарные двери
+          li Технические двери
+          li Двери для входных групп (подъездные двери)
+          li Тамбурные двери
+          li Двери для лифтовых и приквартирных холлов
+
+        +main-btn({
+          title: 'Вызвать замерщика',
+          url: '#'
+        })
+      .hero__content-side.hero__content-side--pattern
+        img(src="./assets/img/hero-img.jpg" alt="Изображение производства" width="740" height="540")

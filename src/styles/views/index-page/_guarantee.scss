@@ -1,0 +1,18 @@
+.guarantee {
+  &__list {
+    @extend .lw-info-card-list;
+
+    @include m-b-laptop-down {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /*@include m-b-tablet-lg-down {
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+    }*/
+
+    @include m-b-tablet-lg-down {
+      grid-template-columns: 1fr;
+    }
+  }
+}

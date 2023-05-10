@@ -17,12 +17,18 @@
     --accent: #f6dfb5;
     --warning: #d1be99;
     --danger: #f09926;
+    --light: #fafafb;
+    --dark: #474350;
+    --text-color: var(--dark);
 
-
+    --alt-bg: var(--light);
     --main-bg: var(--white);
 
     // scrollbar
     --main-scrollbar-width: 6px;
     --main-scrollbar-color: var(--white);
     --main-scrollbar-thumb-color: var(--accent);
+
+    --main-transition: .25s .05s ease-in;
+    --fast-transition: .10s ease-in;
   }

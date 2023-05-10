@@ -7,10 +7,34 @@
 @import "extends";
 @import "common";
 
+
+
+@import "./layout/header";
+
 /* Компоненты */
 
+@import "./components/info-card";
+
+/* Компоненты конец*/
+
 /* Секции */
+@import "./views/index-page/hero";
+@import "./views/index-page/features";
+@import "./views/index-page/company";
+@import "./views/index-page/portfolio";
+@import "./views/index-page/workflow";
+@import "./views/index-page/guarantee";
+@import "./views/index-page/licenses";
+@import "./views/index-page/delivery";
+@import "./views/index-page/offer";
+@import "./views/index-page/objects";
+@import "./views/index-page/contacts";
+/* Секции конец*/
+
+@import "./layout/footer";
 
 /* Модальные окна */
+@import "./modals/modal";
+/* Модальные окна конец*/
 
 

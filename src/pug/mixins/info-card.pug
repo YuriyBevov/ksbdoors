@@ -1,0 +1,8 @@
+mixin info-card(data)
+  .info-card
+    svg(width="64" height="64")
+      use(xlink:href=`./assets/sprite.svg#icon-${data.icon}`)
+
+    span!= data.title
+
+    p!= data.text

@@ -12,8 +12,28 @@
     max-width: var(--container-fluid-width);
   }
 
-  &-title {
+  &-section-title {
+    font-weight: 600;
+    font-size: 50px;
+    margin-top: 0;
+    margin-bottom: 60px;
+    color: var(--text-color);
 
+    span {
+      display: inline-block;
+      position: relative;
+      padding-right: 65px;
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        content: '';
+        height: 5px;
+        width: 50px;
+        background-color: var(--accent);
+      }
+    }
   }
 
   &-subtitle {
@@ -23,4 +43,121 @@
   &-main-text {
 
   }
+
+  &-text {
+
+  }
+
+  &-main-btn {
+    @extend .btn-reset;
+    @extend .flex-centered-content;
+    width: 100%;
+    max-width: 340px;
+    min-height: 50px;
+    padding: 15px 20px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    border: 2px solid transparent;
+
+    color: var(--text-color);
+    background-color: var(--accent);
+
+    transition: opacity var(--fast-transition), color var(--main-transition), border-color var(--main-transition), background-color var(--main-transition);
+
+    &:hover,
+    &:focus {
+      border-color: var(--accent);
+      background-color: transparent;
+    }
+
+    &:active {
+      opacity: .6;
+    }
+  }
+
+  &-section-inner-offset {
+    padding: 100px 0;
+
+    @include m-b-desktop-down {
+      padding: 80px 0;
+    }
+
+    @include m-b-laptop-down {
+      padding: 60px 0;
+    }
+
+    @include m-b-tablet-down {
+      padding: 40px 0;
+    }
+  }
+
+  &-section {
+    @extend .lw-section-inner-offset;
+    outline: 1px solid red;
+    background-color: transparent;
+  }
+
+  &-info-card-list {
+    @extend .list-reset;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+
+    @include m-b-desktop-down {
+      grid-column-gap: 30px;
+      grid-row-gap: 30px;
+    }
+
+    @include m-b-laptop-down {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m-b-tablet-down {
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+    }
+
+    @include m-b-mobile-lg-down {
+      grid-template-columns: 1fr;
+    }
+
+    li {
+      background-color: var(--white);
+      box-shadow: 0px 4px 20px rgba(100, 94, 112, 0.05);
+    }
+  }
+
+  &-alt-bg {
+    background-color: var(--alt-bg);
+  }
+
+  &-pattern {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 640px;
+      height: 388px;
+      background-image: url("../assets/img/pattern.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+  }
+
+  /*&-pattern-image-left::before {
+    left: -175px;
+    bottom: 75px;
+    transform: rotate(-90deg);
+  }
+
+  &-pattern-image-bottom::before {
+    left: -50px;
+    bottom: -50px;
+  }*/
+
 }

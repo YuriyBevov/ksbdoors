@@ -1,0 +1,30 @@
+include ../../mixins/section-title
+
+section.quarantee.lw-alt-bg
+  .lw-container
+    +section-title({
+      tag: 'h2',
+      title: '<span>Гарантии</span>'
+    })
+
+    ul.guarantee__list
+      li
+        +info-card({
+          icon: 'door',
+          title: '12 месяцев',
+          text: '— мы предоставляем гарантию на всю произведенную продукцию.  '
+        })
+
+      li
+        +info-card({
+          icon: 'lock',
+          title: '4 месяца',
+          text: '— на комплектующие (ручки, замки, доводчики и др фурнитуру)'
+        })
+
+      li
+        +info-card({
+          icon: 'installation',
+          title: '12 месяцев',
+          text: '— на монтажные работы'
+        })
