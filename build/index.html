@@ -11,9 +11,39 @@
     <script defer="defer" src="./assets/bundle.js"></script>
   </head>
   <body>
-    <header>
-      <div class="lw-container">
-        <p>header</p>
+    <header class="header">
+      <div class="lw-container header__container"><a class="company-logo" href="index.html"><img src="./assets/img/icon-logo.svg" alt="Завод металлических дверей" width="218" height="50"></a>
+        <div class="header__nav">
+          <button class="nav-closer" type="button" aria-label="Закрыть меню">
+            <svg width="20" height="20">
+              <use xlink:href="./assets/sprite.svg#icon-close"></use>
+            </svg>
+          </button>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li class="nav__list-item"><a href="#">О компании</a></li>
+              <li class="nav__list-item"><a href="#">Примеры работ</a></li>
+              <li class="nav__list-item"><a href="#">Лицензии и Сертификаты</a></li>
+              <li class="nav__list-item"><a href="#">Доставка и оплата</a></li>
+              <li class="nav__list-item"><a href="#">Контакты</a></li>
+            </ul>
+            <div class="nav__info"><a class="company-phone" href="tel:+78126029432">+7 (812) 602-94-32</a>
+              <div class="company-worktime"><span>Пн - Пт: 9:00 - 18:00</span><span>Сб - Вс: Выходной</span></div>
+            </div>
+            <div class="nav__footer"><a class="company-logo" href="index.html"><img src="./assets/img/icon-logo.svg" alt="Завод металлических дверей" width="218" height="50"></a></div>
+          </nav>
+        </div>
+        <div class="header__phone"><a class="company-phone" href="tel:+78126029432">+7 (812) 602-94-32</a></div>
+        <button class="header__callback" type="button" aria-label="Заказать обратный звонок">
+          <svg width="20" height="20">
+            <use xlink:href="./assets/sprite.svg#icon-phone"></use>
+          </svg>
+        </button>
+        <button class="burger" type="button" aria-label="Открыть меню">
+          <svg width="32" height="32">
+            <use xlink:href="./assets/sprite.svg#icon-burger"></use>
+          </svg>
+        </button>
       </div>
     </header>
     <main>

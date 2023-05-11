@@ -1,0 +1,19 @@
+.burger {
+  @extend .btn-reset;
+  @extend .flex-centered-content;
+  margin-left: 20px;
+
+  svg {
+    fill: var(--white);
+    transition: fill var(--main-transition), opacity var(--fast-transition);
+
+    &:hover,
+    &:focus {
+      fill: var(--warning);
+    }
+
+    &:active {
+      opacity: .6;
+    }
+  }
+}

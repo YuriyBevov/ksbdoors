@@ -1,3 +1,18 @@
-header
-  .lw-container
-    p header
+header.header
+  .lw-container.header__container
+    include ../includes/company-logo
+
+    .header__nav
+      button(type="button" aria-label="Закрыть меню").nav-closer
+        svg(width="20" height="20")
+          use(xlink:href="./assets/sprite.svg#icon-close")
+      include ../components/nav
+    .header__phone
+      include ../includes/company-phone
+
+    button(type="button" aria-label="Заказать обратный звонок").header__callback
+      svg(width="20" height="20")
+        use(xlink:href="./assets/sprite.svg#icon-phone")
+
+    include ../components/burger
+
