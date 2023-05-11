@@ -1,6 +1,8 @@
 /* stylelint-disable */
-@import "./vendor/normalize";
+@import "../../node_modules/swiper/swiper-bundle.min";
+@import "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox";
 
-// Стили для swiper.js
-//@import "../../node_modules/swiper/swiper-bundle.min";
+@import "./vendor/normalize";
+@import "./vendor/swiper-custom";
+@import "./vendor/fancybox-custom";
 

@@ -1,8 +1,63 @@
 include ../../mixins/section-title
+include ../../mixins/main-slider
 
 section.objects
   .lw-container
     +section-title({
       tag: 'h2',
       title: 'Наши объекты'
+    })
+
+    +main-slider({
+      cls: 'licenses__slider',
+      fancyboxGallery: 'objects',
+      slides: [
+        {
+          img: 'objects/object_1.jpg',
+          imgWidth: '320',
+          imgHeight: '240',
+          limitStr: 75,
+          txt: 'Название объекта'
+        },
+
+        {
+          img: 'objects/object_2.jpg',
+          imgWidth: '320',
+          imgHeight: '240',
+          limitStr: 75,
+          txt: 'Название объекта'
+        },
+
+        {
+          img: 'objects/object_1.jpg',
+          imgWidth: '320',
+          imgHeight: '240',
+          limitStr: 75,
+          txt: 'Название объекта'
+        },
+
+        {
+          img: 'objects/object_2.jpg',
+          imgWidth: '320',
+          imgHeight: '240',
+          limitStr: 75,
+          txt: 'Название объекта'
+        },
+
+        {
+          img: 'objects/object_1.jpg',
+          imgWidth: '320',
+          imgHeight: '240',
+          limitStr: 75,
+          txt: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda totam unde cupiditate provident, rem quos. Quasi obcaecati, omnis repudiandae facere saepe libero, iste numquam, aliquam autem expedita dolorem placeat ipsum!'
+        },
+
+        {
+          img: 'objects/object_2.jpg',
+          imgWidth: '320',
+          imgHeight: '240',
+          limitStr: 75,
+          txt: 'Название объекта'
+        },
+      ]
     })

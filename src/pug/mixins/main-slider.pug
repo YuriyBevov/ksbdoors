@@ -1,0 +1,19 @@
+mixin main-slider(data)
+  .swiper.main-slider(class= data.cls ? data.cls : null data-fancybox-gallery= data.fancyboxGallery ? data.fancyboxGallery : null)
+    .swiper-wrapper
+      each slide in data.slides
+        .swiper-slide.main-slider-slide
+          img(src=`./assets/img/${slide.img}` alt= slide.txt width= slide.imgWidth height= slide.imgHeight data-fancybox-item)
+          span(data-fancybox-caption= data.fancyboxGallery ? slide.txt : null data-limit= slide.limitStr ? slide.limitStr : null class= slide.limitStr ? 'js-limited-str' : null)!= slide.txt
+
+    .main-slider-controls
+      .main-slider-button-prev
+        svg(width="40" height="40")
+          use(xlink:href="./assets/sprite.svg#icon-slider-arrow")
+
+      .main-slider-pagination
+
+      .main-slider-button-next
+        svg(width="40" height="40")
+          use(xlink:href="./assets/sprite.svg#icon-slider-arrow")
+

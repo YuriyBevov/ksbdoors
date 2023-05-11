@@ -6,13 +6,16 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
-    /*@include m-b-tablet-lg-down {
-      grid-column-gap: 20px;
-      grid-row-gap: 20px;
-    }*/
-
     @include m-b-tablet-lg-down {
       grid-template-columns: 1fr;
     }
   }
+}
+
+.text{
+  fill            : none;
+  stroke          : black;
+  stroke-width    : .5px;
+  stroke-linejoin : round;
+  animation       : 2s pulsate infinite;
 }

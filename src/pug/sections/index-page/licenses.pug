@@ -1,4 +1,5 @@
 include ../../mixins/section-title
+include ../../mixins/main-slider
 
 section.licenses
   .lw-container
@@ -6,3 +7,59 @@ section.licenses
       tag: 'h2',
       title: 'Лицензии и сертификаты'
     })
+
+    +main-slider({
+      cls: 'licenses__slider',
+      fancyboxGallery: 'licenses',
+      slides: [
+        {
+          img: 'licenses/license_1.jpg',
+          imgWidth: '320',
+          imgHeight: '450',
+          limitStr: 75,
+          txt: 'Заключение сан.эпид. экспертизы 1 стр'
+        },
+
+        {
+          img: 'licenses/license_1.jpg',
+          imgWidth: '320',
+          imgHeight: '450',
+          limitStr: 75,
+          txt: 'Заключение сан.эпид. экспертизы 2 стр'
+        },
+
+        {
+          img: 'licenses/license_1.jpg',
+          imgWidth: '320',
+          imgHeight: '450',
+          limitStr: 75,
+          txt: 'Недостаток контента'
+        },
+
+        {
+          img: 'licenses/license_1.jpg',
+          imgWidth: '320',
+          imgHeight: '450',
+          limitStr: 75,
+          txt: 'Сертификат соответствия люки противопожарные металлические '
+        },
+
+        {
+          img: 'licenses/license_1.jpg',
+          imgWidth: '320',
+          imgHeight: '450',
+          limitStr: 75,
+          txt: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda totam unde cupiditate provident, rem quos. Quasi obcaecati, omnis repudiandae facere saepe libero, iste numquam, aliquam autem expedita dolorem placeat ipsum!'
+        },
+
+        {
+          img: 'licenses/license_1.jpg',
+          imgWidth: '320',
+          imgHeight: '450',
+          limitStr: 75,
+          txt: 'Заключение сан.эпид. экспертизы 1 стр'
+        },
+      ]
+    })
+
+
