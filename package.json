@@ -49,7 +49,6 @@
   "dependencies": {
     "@fancyapps/ui": "^5.0.17",
     "imagesloaded": "^5.0.0",
-    "isotope-packery": "^2.0.1",
     "masonry-layout": "^4.2.2",
     "swiper": "^8.4.5"
   },
