@@ -3,3 +3,6 @@ mixin main-btn(data)
     a(href= data.url).lw-main-btn!= data.title
   else
     button.lw-main-btn!= data.title
+
+  if data.notice
+    small!= data.notice
