@@ -24,12 +24,13 @@
       }
 
       .pattern-wrapper {
+        width: fit-content;
         @extend .lw-pattern;
 
         &::before {
           left: -50px;
           bottom: -50px;
-          background-image: url("../assets/img/company-pattern.png");
+          background-image: url("../assets/img/vertical-pattern.png");
 
           @include m-b-down(1280px) {
             left: -30px;
@@ -46,32 +47,5 @@
         max-height: 600px;
       }
     }
-  }
-
-  &__description {
-    @extend .flex-column;
-
-    @include m-b-tablet-lg-down {
-      padding-right: 60px;
-    }
-
-    @include m-b-tablet-down {
-      padding-right: 0;
-    }
-
-    p {
-      font-size: 14px;
-      color: var(--text-color);
-      margin: 0;
-      margin-bottom: 30px;
-
-      @include m-b-down(1280px) {
-        margin-bottom: 20px;
-      }
-    }
-  }
-
-  &__btn {
-    max-width: 275px;
   }
 }

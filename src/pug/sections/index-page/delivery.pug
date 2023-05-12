@@ -1,13 +1,33 @@
 include ../../mixins/section-title
 
 section.delivery
-  .lw-container
+  .lw-container.delivery__container
     +section-title({
       tag: 'h2',
       title: 'Доставка и <span>монтаж</span>'
     })
+    .delivery__side
+      .lw-text-content
+        p При заказе монтажа изделий Вы получаете их доставку в черте КАД Санкт-Петербурга бесплатно.
+        p Зона бесплатной доставки – таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения.
+        p Стоимость доставки без монтажа – <strong>от 3000 руб</strong>.
 
-    +section-title({
-      tag: 'h2',
-      title: '<span>Оплата</span>'
-    })
+      +section-title({
+        tag: 'h2',
+        title: '<span>Оплата</span>'
+      })
+
+      .lw-text-content
+        p Для оформления счета Вам необходимо выслать Ваши реквизиты на электронную почту <a href="mailto:office@ksbdoors.ru">office@ksbdoors.ru</a>
+
+        p Счет на оплату формируется на основании согласованной спецификации.
+
+        p Заказ передается на производство после поступления оплаты на наш расчетный счет.
+
+        p Для получения более подробной информации по условиям оплаты обращайтесь к нашим менеджерам по телефону <a href="tel:88126029432">+7 (812) 602-94-32</a>
+
+      button(type="button").delivery__btn.lw-main-btn Связаться с менеджером
+
+    .delivery__side.pattern-container
+      .pattern-wrapper
+        img(src="./assets/img/map-img.jpg" alt="Доставка в черте города - бесплатно" width="600" height="600")
