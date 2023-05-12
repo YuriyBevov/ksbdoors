@@ -1,0 +1,23 @@
+.masonry {
+
+  &-item {
+    display: flex;
+    width: calc(20% - 10px);
+    margin-bottom: 10px;
+
+    /* up/down desktop-lg(1920),desktop(1440),laptop(1140),tablet-lg(960),tablet(768),mobile-lg(534)*/
+    @include m-b-tablet-lg-down {
+      width: calc(25% - 10px);
+    }
+
+    @include m-b-tablet-down {
+      width: calc((100% / 3) - 10px);
+      margin-bottom: 10px;
+    }
+
+    @include m-b-mobile-lg-down {
+      width: calc(50% - 10px);
+      margin-bottom: 10px;
+    }
+  }
+}

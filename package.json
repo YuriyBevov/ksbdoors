@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.17",
+    "masonry-layout": "^4.2.2",
     "swiper": "^8.4.5"
   },
   "repository": {
