@@ -3012,8 +3012,12 @@ a {
   text-decoration: none;
 }
 
+address {
+  font-style: normal;
+}
+
 /* flex*/
-.flex-wrap, .nav__list, .header__container {
+.flex-wrap, .footer__container, .nav__list, .header__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3021,7 +3025,7 @@ a {
   flex-wrap: wrap;
 }
 
-.flex-centered-content, .burger, .nav-closer, .main-slider-pagination, .main-slider-button-next, .main-slider-button-prev, .main-slider-controls, .header__callback, .header__nav, .lw-main-btn {
+.flex-centered-content, .developer-link, .burger, .nav-closer, .main-slider-pagination, .main-slider-button-next, .main-slider-button-prev, .main-slider-controls, .header__callback, .header__nav, .lw-main-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3033,7 +3037,7 @@ a {
   justify-content: center;
 }
 
-.flex-column, .workflow__list-item, .hero__content-side, .hero__container, .nav__info .company-worktime, .nav__info, .nav, .main-slider-slide, .info-card {
+.flex-column, .footer__field--contacts, .footer__field, .workflow__list-item, .hero__content-side, .hero__container, .company-worktime, .nav__info .company-worktime, .nav__info, .nav, .main-slider-slide, .info-card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3105,21 +3109,21 @@ a {
 }
 
 /*transitions*/
-.hover-opacity {
+.hover-opacity, .footer__field--contacts .company-mail, .developer-link, .company-logo {
   -webkit-transition: opacity var(--main-transition);
   -o-transition: opacity var(--main-transition);
   transition: opacity var(--main-transition);
 }
-.hover-opacity:hover, .hover-opacity:focus {
+.hover-opacity:hover, .footer__field--contacts .company-mail:hover, .developer-link:hover, .company-logo:hover, .hover-opacity:focus, .footer__field--contacts .company-mail:focus, .developer-link:focus, .company-logo:focus {
   opacity: 0.7;
 }
 
-.hover-accent, .nav__list-item a, .header__phone a {
+.hover-accent, .footer__field--contacts .company-phone, .nav__list-item a, .header__phone a {
   -webkit-transition: color var(--main-transition);
   -o-transition: color var(--main-transition);
   transition: color var(--main-transition);
 }
-.hover-accent:hover, .nav__list-item a:hover, .header__phone a:hover, .hover-accent:focus, .nav__list-item a:focus, .header__phone a:focus {
+.hover-accent:hover, .footer__field--contacts .company-phone:hover, .nav__list-item a:hover, .header__phone a:hover, .hover-accent:focus, .footer__field--contacts .company-phone:focus, .nav__list-item a:focus, .header__phone a:focus {
   color: var(--accent);
 }
 
@@ -3166,6 +3170,24 @@ a {
   height: 5px;
   width: 50px;
   background-color: var(--accent);
+}
+.lw-title-xs {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+.lw-nav-item-before-line, .footer__field--nav .nav__list-item, .header__nav .nav__list-item {
+  position: relative;
+}
+.lw-nav-item-before-line::before, .footer__field--nav .nav__list-item::before, .header__nav .nav__list-item::before {
+  position: absolute;
+  top: 17px;
+  left: 0;
+  content: "";
+  width: 12px;
+  height: 2px;
+  background-color: var(--warning);
 }
 .lw-main-btn {
   width: 100%;
@@ -3311,6 +3333,9 @@ a {
     max-width: 840px;
   }
 }
+.header__nav .nav__list-item::before {
+  display: none;
+}
 @media (max-width: 1280px) {
   .header__nav {
     -webkit-box-ordinal-group: 3;
@@ -3360,19 +3385,12 @@ a {
     padding: 100px 20px;
   }
   .header__nav.active .nav__list-item {
-    position: relative;
     margin: 0;
     margin-bottom: 20px;
     padding-left: 12px;
   }
   .header__nav.active .nav__list-item::before {
-    position: absolute;
-    top: 9px;
-    left: 0;
-    content: "";
-    width: 12px;
-    height: 2px;
-    background-color: var(--warning);
+    display: block;
   }
   .header__nav.active .nav__list-item a {
     font-size: 18px;
@@ -3380,6 +3398,13 @@ a {
   }
   .header__nav.active .nav__list-item a:hover {
     color: var(--warning);
+  }
+}
+@media (max-width: 767px) and (max-width: 767px) {
+  .header__nav.active .nav__info, .header__nav.active .nav__footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 .header__phone {
@@ -3566,20 +3591,19 @@ a {
   }
 }
 .nav__list-item a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   font-weight: 700;
   font-size: 14px;
   padding: 10px;
   color: var(--white);
 }
-.nav__info, .nav__footer {
+.nav__list-item--confidentiality {
   display: none;
 }
-@media (max-width: 767px) {
-  .nav__info, .nav__footer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
+.nav__info, .nav__footer {
+  display: none;
 }
 .nav__info {
   padding: 20px;
@@ -3621,6 +3645,32 @@ a {
 }
 .burger svg:active {
   opacity: 0.6;
+}
+
+.company-rights {
+  font-size: 12px;
+  color: var(--white);
+  padding-right: 40px;
+}
+@media (max-width: 767px) {
+  .company-rights {
+    padding: 0;
+  }
+}
+.developer-link {
+  width: 168px;
+  height: 44px;
+}
+@media (max-width: 959px) {
+  .developer-link {
+    margin-left: -4px;
+  }
+}
+.developer-link img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 
 /* Компоненты конец*/
@@ -3854,6 +3904,144 @@ a {
 
 }*/
 /* Секции конец*/
+.footer {
+  padding-top: 40px;
+  font-size: 14px;
+  background-color: var(--black);
+}
+.footer__container {
+  margin-bottom: 40px;
+}
+.footer .lw-title-xs {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: var(--white);
+}
+.footer__field {
+  width: 33.3333333333%;
+}
+.footer__field--logo {
+  width: 100%;
+  margin-bottom: 40px;
+}
+.footer__field--law-info {
+  padding-right: 20px;
+  max-width: 420px;
+}
+.footer__field--law-info .company-law-info__field {
+  margin-bottom: 10px;
+}
+.footer__field--law-info .company-law-info__field span, .footer__field--law-info .company-law-info__field address {
+  display: inline;
+  color: var(--white);
+}
+.footer__field--law-info .company-law-info__field span:first-child {
+  padding-right: 10px;
+}
+.footer__field--law-info .company-law-info__field--owner span {
+  font-weight: 600;
+}
+.footer__field--nav {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 620px;
+  padding: 0 20px;
+  margin: 0 auto;
+  margin-top: -8px;
+}
+.footer__field--nav .nav__list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 250px;
+  padding-left: 12px;
+}
+@media (max-width: 1360px) {
+  .footer__field--nav .nav__list-item {
+    width: 100%;
+  }
+}
+.footer__field--nav .nav__list-item--confidentiality {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.footer__field--contacts {
+  max-width: 320px;
+}
+.footer__field--contacts span, .footer__field--contacts a, .footer__field--contacts address {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+.footer__field--contacts .company-worktime,
+.footer__field--contacts .company-phone,
+.footer__field--contacts .company-mail,
+.footer__field--contacts .company-office-address {
+  margin-bottom: 20px;
+}
+.footer__field--contacts .company-phone,
+.footer__field--contacts .company-mail {
+  display: block;
+}
+.footer__field--contacts .company-mail {
+  text-decoration: underline;
+  color: var(--warning);
+}
+.footer__field--contacts .company-phone {
+  font-size: 18px;
+  font-weight: 600;
+}
+@media (max-width: 959px) {
+  .footer__field {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+  .footer__field--nav {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+  .footer__field--contacts {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+  }
+  .footer__field--law-info {
+    -webkit-box-ordinal-group: 4;
+    -ms-flex-order: 3;
+    order: 3;
+  }
+}
+.footer__bottom {
+  padding: 20px 0;
+  background-color: var(--darkness);
+}
+.footer__bottom-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 168px;
+  grid-template-columns: auto 168px;
+  grid-column-gap: 40px;
+  grid-row-gap: 20px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .footer__bottom-container {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Модальные окна */
 /* Модальные окна конец*/
 /*# sourceMappingURL=main.css.map */

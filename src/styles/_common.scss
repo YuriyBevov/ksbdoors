@@ -40,12 +40,32 @@
 
   }
 
+  &-title-xs {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
   &-main-text {
 
   }
 
   &-text {
 
+  }
+
+  &-nav-item-before-line {
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 17px;
+      left: 0;
+      content: '';
+      width: 12px;
+      height: 2px;
+      background-color: var(--warning);
+    }
   }
 
   &-main-btn {

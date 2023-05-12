@@ -1,0 +1,152 @@
+.footer {
+  padding-top: 40px;
+  font-size: 14px;
+  background-color: var(--black);
+
+  &__container {
+    @extend .flex-wrap;
+    margin-bottom: 40px;
+  }
+
+  .lw-title-xs {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: var(--white);
+  }
+
+  &__field {
+    width: calc(100% / 3);
+    @extend .flex-column;
+
+    &--logo {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    &--law-info {
+      padding-right: 20px;
+      max-width: 420px;
+
+      .company-law-info {
+        &__field {
+          margin-bottom: 10px;
+
+          span,address {
+            display: inline;
+            color: var(--white);
+          }
+
+          span:first-child {
+            padding-right: 10px;
+          }
+
+          &--owner span {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    &--nav {
+      flex-grow: 1;
+      max-width: 620px;
+      padding: 0 20px;
+      margin: 0 auto;
+      margin-top: -8px;
+
+      .nav {
+        &__list {
+          &-item {
+            display: flex;
+            width: fit-content;
+            min-width: 250px;
+            padding-left: 12px;
+            @extend .lw-nav-item-before-line;
+
+            @include m-b-down(1360px) {
+              width: 100%;
+            }
+
+            &--confidentiality {
+              display: flex;
+            }
+          }
+        }
+      }
+    }
+
+    &--contacts {
+      max-width: 320px;
+      @extend .flex-column;
+
+      span,a,address {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--white);
+      }
+
+      .company-worktime,
+      .company-phone,
+      .company-mail,
+      .company-office-address {
+        margin-bottom: 20px;
+      }
+
+      .company-phone,
+      .company-mail {
+        display: block;
+      }
+
+      .company-mail {
+        text-decoration: underline;
+        color: var(--warning);
+
+        @extend .hover-opacity;
+      }
+
+      .company-phone {
+        font-size: 18px;
+        font-weight: 600;
+
+        @extend .hover-accent;
+      }
+    }
+
+    @include m-b-tablet-lg-down {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      margin-bottom: 20px;
+      padding: 0;
+
+      &--nav {
+        order: 1;
+      }
+
+      &--contacts {
+        order: 2;
+      }
+
+      &--law-info {
+        order: 3;
+      }
+    }
+  }
+
+  &__bottom {
+    padding: 20px 0;
+    background-color: var(--darkness);
+
+    &-container {
+      display: grid;
+      grid-template-columns: auto 168px;
+      grid-column-gap: 40px;
+      grid-row-gap: 20px;
+      align-items: center;
+
+      @include m-b-tablet-down {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

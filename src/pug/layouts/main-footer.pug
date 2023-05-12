@@ -1,3 +1,28 @@
-footer
-  .lw-container
-    p footer
+footer.footer
+  .lw-container.footer__container
+    .footer__field.footer__field--logo
+      include ../includes/company-logo
+
+    .footer__field.footer__field--law-info
+      span.lw-title-xs Юридическая информация:
+      include ../includes/company-law-info
+
+    .footer__field.footer__field--nav.footer__nav
+      include ../components/nav
+
+    .footer__field.footer__field--contacts
+      .footer__contacts
+        span.lw-title-xs Офис продаж:
+        include ../includes/company-office-address
+        include ../includes/company-mail
+        include ../includes/company-phone
+        include ../includes/company-worktime
+
+        span.lw-title-xs Производство-склад:
+        include ../includes/company-manufacture-address
+  .footer__bottom
+    .lw-container.footer__bottom-container
+      include ../includes/company-rights
+      include ../includes/developer-link
+
+

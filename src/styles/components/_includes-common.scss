@@ -1,0 +1,36 @@
+.company {
+  &-logo {
+    @extend .hover-opacity;
+  }
+
+  &-rights {
+    font-size: 12px;
+    color: var(--white);
+    padding-right: 40px;
+
+    @include m-b-tablet-down {
+      padding: 0;
+    }
+  }
+
+  &-worktime {
+    @extend .flex-column;
+  }
+}
+
+.developer-link {
+  @extend .flex-centered-content;
+  width: 168px;
+  height: 44px;
+  @extend .hover-opacity;
+
+  @include m-b-tablet-lg-down {
+    margin-left: -4px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

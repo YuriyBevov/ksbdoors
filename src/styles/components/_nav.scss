@@ -31,6 +31,7 @@
 
   &__list-item {
     a {
+      display: flex;
       font-weight: 700;
       font-size: 14px;
       padding: 10px;
@@ -38,15 +39,14 @@
 
       @extend .hover-accent;
     }
+    &--confidentiality {
+      display: none;
+    }
   }
 
   &__info,
   &__footer {
     display: none;
-
-    @include m-b-tablet-down {
-      display: flex;
-    }
   }
 
   &__info {

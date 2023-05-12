@@ -40,6 +40,14 @@
       @include m-b-down(1280px) {
         max-width: 840px;
       }
+
+      &__list-item {
+        @extend .lw-nav-item-before-line;
+
+        &::before {
+          display: none;
+        }
+      }
     }
 
     @include m-b-down(1280px) {
@@ -82,20 +90,12 @@
             padding: 100px 20px;
 
             &-item {
-              position: relative;
               margin: 0;
               margin-bottom: 20px;
               padding-left: 12px;
 
               &::before {
-                position: absolute;
-
-                top: 9px;
-                left: 0;
-                content: '';
-                width: 12px;
-                height: 2px;
-                background-color: var(--warning);
+                display: block;
               }
 
               a {
@@ -106,6 +106,13 @@
                   color: var(--warning);
                 }
               }
+            }
+          }
+
+          &__info,
+          &__footer {
+            @include m-b-tablet-down {
+              display: flex;
             }
           }
         }
