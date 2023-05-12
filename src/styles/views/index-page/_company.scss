@@ -1,0 +1,77 @@
+.company {
+  &__container {
+    display: grid;
+    grid-template-columns: 9fr 5fr;
+    grid-column-gap: 40px;
+
+    @include m-b-tablet-lg-down {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__side {
+    &.pattern-container {
+      padding-left: 50px;
+      padding-bottom: 50px;
+
+      @include m-b-down(1280px) {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+
+      @include m-b-tablet-lg-down {
+        display: none;
+      }
+
+      .pattern-wrapper {
+        @extend .lw-pattern;
+
+        &::before {
+          left: -50px;
+          bottom: -50px;
+          background-image: url("../assets/img/company-pattern.png");
+
+          @include m-b-down(1280px) {
+            left: -30px;
+            bottom: -30px;
+          }
+        }
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        max-width: 480px;
+        height: 100%;
+        max-height: 600px;
+      }
+    }
+  }
+
+  &__description {
+    @extend .flex-column;
+
+    @include m-b-tablet-lg-down {
+      padding-right: 60px;
+    }
+
+    @include m-b-tablet-down {
+      padding-right: 0;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--text-color);
+      margin: 0;
+      margin-bottom: 30px;
+
+      @include m-b-down(1280px) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__btn {
+    max-width: 275px;
+  }
+}
