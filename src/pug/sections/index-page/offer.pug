@@ -1,8 +1,19 @@
 include ../../mixins/section-title
+include ../../mixins/main-input
+include ../../mixins/custom-select
 
 section.offer
   .lw-container
-    +section-title({
-      tag: 'h2',
-      title: 'Рассчитать <span>стоимость</span>'
-    })
+    .offer__container
+      .offer__side.offer__side--form-container
+        +section-title({
+          tag: 'h2',
+          title: 'Рассчитать <span>стоимость</span>'
+        })
+
+        p.offer__desc Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения.
+
+        include ../../components/offer-form
+
+      .offer__side.offer__side--image-bg
+        img(src="./assets/img/offer-img.jpg" alt="Рассчитать стоимость" width="600" height="600")

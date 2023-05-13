@@ -146,40 +146,47 @@
       <section class="portfolio lw-alt-bg">
         <div class="lw-container">
                 <h2 class="lw-section-title">Наши <span>работы</span></h2>
+          <div class="tags">
+                  <select class="portfolio-custom-select" id="portfolio-tags">
+                    <option value="type_0" selected># Все</option>
+                  </select>
+            <div class="tags__list">
+              <button class="lw-main-btn active-tag" type="button" data-value="0">Выбрать все</button>
+              <template id="tag-list-button-template">
+                <button class="lw-main-btn" type="button" data-value=""></button>
+              </template>
+            </div>
+          </div>
           <div class="masonry" data-fancybox-gallery="portfolio">
             <div class="masonry-sizer"></div>
             <div class="gutter-sizer"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_1.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_2.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_3.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_4.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_5.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_6.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_7.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_8.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_9.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_10.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_11.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_12.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_1.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_2.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_3.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_4.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_5.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_6.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_7.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_8.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_9.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_10.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_2.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_3.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_4.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_5.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_6.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_7.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_8.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_9.jpg" alt="Портфолио" width="100%" height="100%"></div>
-            <div class="masonry-item"><img data-fancybox-item src="./assets/img/portfolio/portfolio_10.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С фрамугой" src="./assets/img/portfolio/portfolio_1.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,Противопожарные" src="./assets/img/portfolio/portfolio_2.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="Противопожарные,С фрамугой" src="./assets/img/portfolio/portfolio_3.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С отбойниками" src="./assets/img/portfolio/portfolio_4.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С фрамугой,С передаточным окном" src="./assets/img/portfolio/portfolio_5.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С передаточным окном" src="./assets/img/portfolio/portfolio_6.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С вентиляцией" src="./assets/img/portfolio/portfolio_7.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С фрамугой,Остекленные" src="./assets/img/portfolio/portfolio_8.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С отбойниками" src="./assets/img/portfolio/portfolio_9.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С фрамугой" src="./assets/img/portfolio/portfolio_1.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,Противопожарные" src="./assets/img/portfolio/portfolio_2.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="Противопожарные,С фрамугой" src="./assets/img/portfolio/portfolio_3.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С отбойниками" src="./assets/img/portfolio/portfolio_4.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С фрамугой,С передаточным окном" src="./assets/img/portfolio/portfolio_5.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С передаточным окном" src="./assets/img/portfolio/portfolio_6.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С вентиляцией" src="./assets/img/portfolio/portfolio_7.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С фрамугой,Остекленные" src="./assets/img/portfolio/portfolio_8.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С отбойниками" src="./assets/img/portfolio/portfolio_9.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С фрамугой" src="./assets/img/portfolio/portfolio_1.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,Противопожарные" src="./assets/img/portfolio/portfolio_2.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="Противопожарные,С фрамугой" src="./assets/img/portfolio/portfolio_3.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С отбойниками" src="./assets/img/portfolio/portfolio_4.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С фрамугой,С передаточным окном" src="./assets/img/portfolio/portfolio_5.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С передаточным окном" src="./assets/img/portfolio/portfolio_6.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С вентиляцией" src="./assets/img/portfolio/portfolio_7.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С фрамугой,Остекленные" src="./assets/img/portfolio/portfolio_8.jpg" alt="Портфолио" width="100%" height="100%"></div>
+            <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С отбойниками" src="./assets/img/portfolio/portfolio_9.jpg" alt="Портфолио" width="100%" height="100%"></div>
           </div>
           <button class="lw-main-btn portfolio__btn" type="button">Показать еще</button>
         </div>
@@ -305,7 +312,40 @@
       </section>
       <section class="offer">
         <div class="lw-container">
-                <h2 class="lw-section-title">Рассчитать <span>стоимость</span></h2>
+          <div class="offer__container">
+            <div class="offer__side offer__side--form-container">
+                    <h2 class="lw-section-title">Рассчитать <span>стоимость</span></h2>
+              <p class="offer__desc">Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения.</p>
+              <form class="offer-form" action="#" id="offer-form">
+                <div class="offer-form__field">
+                        <select class="common-custom-select" id="door_type">
+                          <option value="type_0" selected>Выберите тип двери</option>
+                          <option value="type_1">Противопожарные двери</option>
+                          <option value="type_2">Технические двери</option>
+                          <option value="type_3">Двери для входных групп (подъездные двери)</option>
+                          <option value="type_4">Тамбурные двери</option>
+                          <option value="type_5">Двери для лифтовых и приквартирных холлов</option>
+                        </select>
+                </div>
+                <div class="offer-form__field">
+                        <input class="lw-main-input" type="text" name="Размер двери" placeholder="Размеры: например 2000 х 2000 мм" id="door_size">
+                </div>
+                <div class="offer-form__field">
+                        <input class="lw-main-input" type="tel" name="Имя" placeholder="Имя*" id="user_name">
+                </div>
+                <div class="offer-form__field">
+                        <input class="lw-main-input" type="text" name="E-mail" placeholder="Электронная почта" id="user_email">
+                </div>
+                <div class="offer-form__field">
+                        <input class="lw-main-input" type="tel" name="Телефон" placeholder="Телефон*" id="user_phone">
+                </div>
+                <div class="offer-form__footer">
+                  <button class="lw-main-btn" type="submit">Рассчитать стоимость</button><small>Нажимая на кнопку вы соглашаетесь с&nbsp;<a href="#">обработкой персональных</a> данных.</small>
+                </div>
+              </form>
+            </div>
+            <div class="offer__side offer__side--image-bg"><img src="./assets/img/offer-img.jpg" alt="Рассчитать стоимость" width="600" height="600"></div>
+          </div>
         </div>
       </section>
       <section class="objects">

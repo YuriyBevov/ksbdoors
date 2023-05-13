@@ -1,0 +1,39 @@
+.offer-form {
+  &__field {
+    margin-bottom: 20px;
+  }
+
+  &__footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    padding-top: 20px;
+    align-items: center;
+
+    @include m-b-down(1200px) {
+      grid-template-columns: 1fr;
+      grid-row-gap: 20px;
+    }
+
+    .lw-main-btn {
+      margin: 0;
+
+      @include m-b-down(1200px) {
+        max-width: 275px;
+      }
+
+      & + small {
+        color: var(--text-color);
+
+        a {
+          font-size: 12px;
+          font-weight: 600;
+          text-decoration: underline;
+          color: var(--text-color);
+
+          @extend .hover-opacity;
+        }
+      }
+    }
+  }
+}

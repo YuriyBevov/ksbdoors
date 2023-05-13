@@ -1,0 +1,14 @@
+.tags
+  +custom-select({
+    id: 'portfolio-tags',
+    cls: 'portfolio-custom-select',
+    options: [
+      { value: 'type_0', name: '# Все', isSelected: true},
+    ]
+  })
+
+  .tags__list
+    button(type="button" data-value="0").lw-main-btn.active-tag Выбрать все
+
+    template#tag-list-button-template
+      button(type="button" data-value="").lw-main-btn

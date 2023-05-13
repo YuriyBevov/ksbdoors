@@ -1,6 +1,6 @@
 import Masonry from "masonry-layout";
+import { setTags } from "./tags.js";
 import imagesLoaded from "imagesloaded";
-
 const layout = document.querySelector('.masonry');
 
 if(layout) {
@@ -11,11 +11,13 @@ if(layout) {
   let msnry = null;
 
   const setHiddenClass = (item) => {
-    item.classList.add('hidden');
+    !item.classList.contains('hidden') ?
+    item.classList.add('hidden') : null;
   }
 
   const removeHiddenClass = (item) => {
-    item.classList.remove('hidden');
+    item.classList.contains('hidden') ?
+    item.classList.remove('hidden') : null;
   }
 
   items.forEach((item,index) => {
@@ -25,7 +27,7 @@ if(layout) {
   });
 
   const msnryReload = () => {
-    msnry.reloadItems();
+    msnry.reloadItems()
     msnry.layout();
   }
 
@@ -57,7 +59,44 @@ if(layout) {
     itemsToShow += itemsToShow;
     setActiveItems();
   });
+
+  const onClickSetMasonry = (evt) => {
+    const value = evt.target.dataset.value;
+    const prev = document.querySelector('button.active-tag');
+    const active = document.querySelector(`button[data-value="${value}"]`);
+
+    prev.classList.remove('active-tag');
+    active.classList.add('active-tag');
+
+    new Promise((resolve, reject) => {
+      imgs.forEach(img => {
+        setHiddenClass(img.parentNode);
+      });
+      resolve(imgs);
+    }).then((imgs) => {
+      imgs.forEach(img => {
+        const data = img.dataset.tags.split(',');
+        if(data.includes(value)) {
+          removeHiddenClass(img.parentNode);
+        }
+      });
+      return imgs
+    }).then((imgs) => {
+      imagesLoaded( imgs, () => {
+        msnry.layout();
+      });
+    })
+  }
+
+  new Promise((resolve, reject) => {
+    resolve(setTags());
+  }).then(() => {
+    const btns = document.querySelectorAll('.tags__list button');
+    const opts = document.querySelectorAll('.tags .custom-select-option');
+    const controls = [...btns, ...opts];
+
+    controls.forEach(control => {
+      control.addEventListener('click', onClickSetMasonry);
+    })
+  })
 }
-
-
-

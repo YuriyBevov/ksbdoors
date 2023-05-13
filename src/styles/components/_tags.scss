@@ -1,0 +1,43 @@
+.tags {
+  margin-bottom: 40px;
+
+  .custom-select-container {
+    display: none;
+
+    @include m-b-tablet-down {
+      display: block;
+      max-width: 275px;
+    }
+  }
+
+
+  &__list {
+    @extend .flex-wrap;
+
+    button {
+      width: fit-content;
+      margin-right: 10px;
+      margin-bottom: 10px;
+
+      padding: 10px 15px;
+      min-height: 30px;
+      border-color: var(--accent);
+      background-color: transparent;
+
+      &.active-tag,
+      &:hover,
+      &:focus {
+        background-color: var(--accent);
+      }
+
+      &:active {
+        opacity: .6;
+      }
+    }
+
+    /* up/down desktop-lg(1920),desktop(1440),laptop(1140),tablet-lg(960),tablet(768),mobile-lg(534)*/
+    @include m-b-tablet-down {
+      display: none;
+    }
+  }
+}

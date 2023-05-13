@@ -1,0 +1,46 @@
+form(action='#' id="offer-form").offer-form
+  .offer-form__field
+    +custom-select({
+      id: 'door_type',
+      cls: 'common-custom-select',
+      options: [
+        { value: 'type_0', name: 'Выберите тип двери', isSelected: true},
+        { value: 'type_1', name: 'Противопожарные двери'},
+        { value: 'type_2', name: 'Технические двери'},
+        { value: 'type_3', name: 'Двери для входных групп (подъездные двери)'},
+        { value: 'type_4', name: 'Тамбурные двери'},
+        { value: 'type_5', name: 'Двери для лифтовых и приквартирных холлов'},
+      ]
+    })
+  .offer-form__field
+    +main-input({
+      type: 'text',
+      placeholder: 'Размеры: например 2000 х 2000 мм',
+      id: 'door_size',
+      name: 'Размер двери'
+    })
+  .offer-form__field
+    +main-input({
+      type: 'tel',
+      placeholder: 'Имя*',
+      id: 'user_name',
+      name: 'Имя'
+    })
+  .offer-form__field
+    +main-input({
+      type: 'text',
+      placeholder: 'Электронная почта',
+      id: 'user_email',
+      name: 'E-mail'
+    })
+  .offer-form__field
+    +main-input({
+      type: 'tel',
+      placeholder: 'Телефон*',
+      id: 'user_phone',
+      name: 'Телефон'
+    })
+
+  .offer-form__footer
+    button(type="submit").lw-main-btn Рассчитать стоимость
+    small Нажимая на кнопку вы соглашаетесь с&nbsp;<a href="#">обработкой персональных</a> данных.

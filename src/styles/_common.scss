@@ -154,6 +154,28 @@
     }
   }
 
+  &-text-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-main-input {
+    width: 100%;
+    padding: 15px 20px;
+    min-height: 50px;
+    font-size: 14px;
+    border: 1px solid #E6E6E6;
+    color: var(--text-color);
+
+    @extend .lw-text-overflow;
+
+    &::placeholder {
+      font-size: 14px;
+      color: var(--text-color);
+
+    }
+  }
 
   &-section-btn {
     max-width: 275px;

@@ -1,0 +1,50 @@
+.offer {
+  background-image: url("../assets/img/offer-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--white);
+
+    @include m-b-tablet-lg-down {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__desc {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 0;
+    margin-bottom: 30px;
+    color: var(--text-color);
+  }
+
+  &__side {
+    &--form-container {
+      padding: 40px;
+
+      @include m-b-down(1200px) {
+        padding: 25px;
+      }
+    }
+    &--image-bg {
+      img {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        object-position: right;
+      }
+
+      @include m-b-tablet-lg-down {
+        display: none;
+      }
+    }
+
+    .lw-section-title {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+  }
+}

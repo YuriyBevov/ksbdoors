@@ -1,0 +1,4 @@
+mixin custom-select(data)
+  select(id= data.id class= data.cls ? data.cls : null)
+    each option in data.options
+      option(value= option.value ? option.value : null selected= option.isSelected ? true : false)= option.name ? option.name : option.placeholder

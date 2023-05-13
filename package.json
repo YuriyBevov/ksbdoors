@@ -48,7 +48,9 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.17",
+    "custom-select": "^1.1.15",
     "imagesloaded": "^5.0.0",
+    "imask": "^6.6.1",
     "masonry-layout": "^4.2.2",
     "swiper": "^8.4.5"
   },

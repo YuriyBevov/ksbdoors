@@ -1,0 +1,121 @@
+$height: 50px;
+
+.custom-select-container {
+  position: relative;
+  height: $height;
+  width: 100%;
+
+  &.is-open {
+    .custom-select-opener::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+}
+
+.custom-select-container.is-disabled {
+  opacity: .333;
+}
+
+.custom-select-opener {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  width: inherit;
+  height: inherit;
+
+  font-size: 14px;
+  line-height: 20px;
+  padding: 20px;
+
+  cursor: pointer;
+
+  border: 1px solid #e6e6e6;
+  color: var(--text-color);
+  background-color: var(--white);
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+
+    content: '';
+    width: 24px;
+    height: 24px;
+
+    background-image: url("../assets/img/icon-select-arrow.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    transition: transform var(--main-transition);
+  }
+
+  span {
+    width: calc(100% - 30px);
+    @extend .lw-text-overflow;
+  }
+}
+
+.custom-select-container select {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: inherit;
+  height: inherit;
+}
+
+.custom-select-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  overflow: hidden;
+
+  width: 100%;
+  height: auto;
+  max-height: 0;
+
+  transition: opacity var(--main-transition);
+  opacity: 0;
+
+  background-color: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+.custom-select-container.is-open .custom-select-panel {
+  max-height: 250px;
+  opacity: 1;
+  overflow-y: auto;
+  z-index: 11;
+}
+
+.custom-select-option {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 12px;
+
+  cursor: pointer;
+
+  color: var(--text-color);
+  background-color: var(--main-control-bg);
+
+  transition: color var(--main-transition), background-color var(--main-transition);
+
+  &::after {
+    display: none;
+  }
+}
+
+.custom-select-option.has-focus {
+  background-color: var(--light);
+}
+
+.portfolio__tags {
+
+}
