@@ -189,12 +189,12 @@ if (layout) {
   var removeHiddenClass = function removeHiddenClass(item) {
     item.classList.contains('hidden') ? item.classList.remove('hidden') : null;
   };
-
-  items.forEach(function (item, index) {
-    if (index > itemsToShow) {
+  /*items.forEach((item,index) => {
+    if(index > itemsToShow) {
       setHiddenClass(item);
     }
-  });
+  });*/
+
 
   var msnryReload = function msnryReload() {
     msnry.reloadItems();
@@ -224,36 +224,43 @@ if (layout) {
       percentPosition: true
     });
   });
-  trigger.addEventListener('click', function () {
+  /*trigger.addEventListener('click', () => {
     itemsToShow += itemsToShow;
     setActiveItems();
-  });
+  });*/
 
   var onClickSetMasonry = function onClickSetMasonry(evt) {
     var value = evt.target.dataset.value;
-    var prev = document.querySelector('button.active-tag');
-    var active = document.querySelector("button[data-value=\"".concat(value, "\"]"));
-    prev.classList.remove('active-tag');
-    active.classList.add('active-tag');
-    new Promise(function (resolve, reject) {
-      imgs.forEach(function (img) {
-        setHiddenClass(img.parentNode);
-      });
-      resolve(imgs);
-    }).then(function (imgs) {
-      imgs.forEach(function (img) {
-        var data = img.dataset.tags.split(',');
 
-        if (data.includes(value)) {
-          removeHiddenClass(img.parentNode);
-        }
+    if (evt.target === trigger) {
+      console.log('trigger');
+    } else if (value && value === '0') {
+      console.log('0');
+    } else {
+      var prev = document.querySelector('button.active-tag');
+      var active = document.querySelector("button[data-value=\"".concat(value, "\"]"));
+      prev.classList.remove('active-tag');
+      active.classList.add('active-tag');
+      new Promise(function (resolve, reject) {
+        imgs.forEach(function (img) {
+          setHiddenClass(img.parentNode);
+        });
+        resolve(imgs);
+      }).then(function (imgs) {
+        imgs.forEach(function (img) {
+          var data = img.dataset.tags.split(',');
+
+          if (data.includes(value)) {
+            removeHiddenClass(img.parentNode);
+          }
+        });
+        return imgs;
+      }).then(function (imgs) {
+        imagesloaded__WEBPACK_IMPORTED_MODULE_2___default()(imgs, function () {
+          msnry.layout();
+        });
       });
-      return imgs;
-    }).then(function (imgs) {
-      imagesloaded__WEBPACK_IMPORTED_MODULE_2___default()(imgs, function () {
-        msnry.layout();
-      });
-    });
+    }
   };
 
   new Promise(function (resolve, reject) {
@@ -261,7 +268,7 @@ if (layout) {
   }).then(function () {
     var btns = document.querySelectorAll('.tags__list button');
     var opts = document.querySelectorAll('.tags .custom-select-option');
-    var controls = [].concat(_toConsumableArray(btns), _toConsumableArray(opts));
+    var controls = [].concat(_toConsumableArray(btns), _toConsumableArray(opts), [trigger]);
     controls.forEach(function (control) {
       control.addEventListener('click', onClickSetMasonry);
     });

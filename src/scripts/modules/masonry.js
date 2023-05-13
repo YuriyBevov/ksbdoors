@@ -1,4 +1,5 @@
 import Masonry from "masonry-layout";
+
 import { setTags } from "./tags.js";
 import imagesLoaded from "imagesloaded";
 const layout = document.querySelector('.masonry');
@@ -20,11 +21,11 @@ if(layout) {
     item.classList.remove('hidden') : null;
   }
 
-  items.forEach((item,index) => {
+  /*items.forEach((item,index) => {
     if(index > itemsToShow) {
       setHiddenClass(item);
     }
-  });
+  });*/
 
   const msnryReload = () => {
     msnry.reloadItems()
@@ -55,37 +56,44 @@ if(layout) {
     });
   });
 
-  trigger.addEventListener('click', () => {
+  /*trigger.addEventListener('click', () => {
     itemsToShow += itemsToShow;
     setActiveItems();
-  });
+  });*/
 
   const onClickSetMasonry = (evt) => {
     const value = evt.target.dataset.value;
-    const prev = document.querySelector('button.active-tag');
-    const active = document.querySelector(`button[data-value="${value}"]`);
 
-    prev.classList.remove('active-tag');
-    active.classList.add('active-tag');
+    if(evt.target === trigger) {
+      console.log('trigger')
+    } else if(value && value === '0') {
+      console.log('0')
+    } else {
+      const prev = document.querySelector('button.active-tag');
+      const active = document.querySelector(`button[data-value="${value}"]`);
 
-    new Promise((resolve, reject) => {
-      imgs.forEach(img => {
-        setHiddenClass(img.parentNode);
+      prev.classList.remove('active-tag');
+      active.classList.add('active-tag');
+
+      new Promise((resolve, reject) => {
+        imgs.forEach(img => {
+          setHiddenClass(img.parentNode);
+        });
+        resolve(imgs);
+      }).then((imgs) => {
+        imgs.forEach(img => {
+          const data = img.dataset.tags.split(',');
+          if(data.includes(value)) {
+            removeHiddenClass(img.parentNode);
+          }
+        });
+        return imgs
+      }).then((imgs) => {
+        imagesLoaded( imgs, () => {
+          msnry.layout();
+        });
       });
-      resolve(imgs);
-    }).then((imgs) => {
-      imgs.forEach(img => {
-        const data = img.dataset.tags.split(',');
-        if(data.includes(value)) {
-          removeHiddenClass(img.parentNode);
-        }
-      });
-      return imgs
-    }).then((imgs) => {
-      imagesLoaded( imgs, () => {
-        msnry.layout();
-      });
-    })
+    }
   }
 
   new Promise((resolve, reject) => {
@@ -93,10 +101,10 @@ if(layout) {
   }).then(() => {
     const btns = document.querySelectorAll('.tags__list button');
     const opts = document.querySelectorAll('.tags .custom-select-option');
-    const controls = [...btns, ...opts];
+    const controls = [...btns, ...opts, trigger];
 
     controls.forEach(control => {
       control.addEventListener('click', onClickSetMasonry);
-    })
+    });
   })
 }
