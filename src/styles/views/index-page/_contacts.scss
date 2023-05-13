@@ -1,0 +1,130 @@
+#yMaps {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  @include m-b-tablet-lg-down {
+    position: static;
+    height: 600px;
+  }
+
+  .ymaps-icon-content-layout {
+    width: fit-content;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 5px;
+    box-shadow: 0px 4px 10px rgba(100, 94, 112, 0.3);
+    border-radius: 6px;
+    color: var(--text-color);
+    background-color: var(--white);
+  }
+
+  .zoom-btns {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 100px;
+
+    button {
+      @extend .btn-reset;
+      @extend .flex-centered-content;
+      width: 40px;
+      height: 40px;
+      margin: 0 5px;
+      box-shadow: 0px 4px 10px rgba(100, 94, 112, 0.3);
+      border-radius: 6px;
+      background-color: var(--white);
+
+      &:active {
+        background-color: var(--accent);
+      }
+    }
+  }
+}
+
+.contacts {
+  position: relative;
+
+  @include m-b-tablet-lg-down {
+    padding-bottom: 0;
+  }
+
+  &__container {
+    @extend .flex-column;
+  }
+
+  &__content {
+    @extend .flex-column;
+    position: relative;
+    padding: 40px;
+    width: fit-content;
+    background-color: var(--white);
+
+    @include m-b-tablet-lg-down {
+      padding: 0;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    z-index: 3;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 100%;
+      content: '';
+      width: 100vw;
+      height: 100%;
+      background-color: var(--white);
+    }
+
+    .lw-section-title {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .lw-title-xs {
+      margin-bottom: 20px;
+    }
+
+    .company-manufacture-notice {
+      display: block;
+      color: var(--text-color);
+    }
+
+    .company-worktime,
+    .company-phone,
+    .company-mail,
+    .company-office-address,
+    .company-manufacture-address {
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: var(--text-color);
+    }
+
+    .company-worktime {
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--warning);
+    }
+
+    .company-manufacture-address {
+      margin-bottom: 0;
+    }
+
+    .company-phone {
+      font-size: 18px;
+      font-weight: 600;
+      @extend .hover-accent;
+    }
+
+    .company-mail {
+      text-decoration: underline;
+
+      @extend .hover-opacity;
+    }
+  }
+}

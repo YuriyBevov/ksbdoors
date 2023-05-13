@@ -16,6 +16,15 @@
   &-worktime {
     @extend .flex-column;
   }
+
+  &-manufacture-notice {
+    display: none;
+  }
+
+  &-mail,
+  &-phone {
+    white-space: nowrap;
+  }
 }
 
 .developer-link {

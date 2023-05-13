@@ -3029,7 +3029,7 @@ address {
   flex-wrap: wrap;
 }
 
-.flex-centered-content, .developer-link, .burger, .nav-closer, .main-slider-pagination, .main-slider-button-next, .main-slider-button-prev, .main-slider-controls, .header__callback, .header__nav, .lw-main-btn {
+.flex-centered-content, #yMaps .zoom-btns button, .developer-link, .burger, .nav-closer, .main-slider-pagination, .main-slider-button-next, .main-slider-button-prev, .main-slider-controls, .header__callback, .header__nav, .lw-main-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3041,7 +3041,7 @@ address {
   justify-content: center;
 }
 
-.flex-column, .footer__field--contacts, .footer__field, .workflow__list-item, .hero__content-side, .hero__container, .company-worktime, .nav__info .company-worktime, .nav__info, .nav, .main-slider-slide, .info-card, .lw-text-content {
+.flex-column, .footer__field--contacts, .footer__field, .contacts__content, .contacts__container, .workflow__list-item, .hero__content-side, .hero__container, .company-worktime, .nav__info .company-worktime, .nav__info, .nav, .main-slider-slide, .info-card, .lw-text-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3081,7 +3081,7 @@ address {
   border: 0;
 }
 
-.btn-reset, .burger, .nav-closer, .header__callback, .lw-main-btn {
+.btn-reset, #yMaps .zoom-btns button, .burger, .nav-closer, .header__callback, .lw-main-btn {
   border: none;
   padding: 0;
   background: transparent;
@@ -3113,21 +3113,21 @@ address {
 }
 
 /*transitions*/
-.hover-opacity, .footer__field--contacts .company-mail, .developer-link, .company-logo, .lw-text-content p a {
+.hover-opacity, .footer__field--contacts .company-mail, .contacts__content .company-mail, .developer-link, .company-logo, .lw-text-content p a {
   -webkit-transition: opacity var(--main-transition);
   -o-transition: opacity var(--main-transition);
   transition: opacity var(--main-transition);
 }
-.hover-opacity:hover, .footer__field--contacts .company-mail:hover, .developer-link:hover, .company-logo:hover, .lw-text-content p a:hover, .hover-opacity:focus, .footer__field--contacts .company-mail:focus, .developer-link:focus, .company-logo:focus, .lw-text-content p a:focus {
+.hover-opacity:hover, .footer__field--contacts .company-mail:hover, .contacts__content .company-mail:hover, .developer-link:hover, .company-logo:hover, .lw-text-content p a:hover, .hover-opacity:focus, .footer__field--contacts .company-mail:focus, .contacts__content .company-mail:focus, .developer-link:focus, .company-logo:focus, .lw-text-content p a:focus {
   opacity: 0.7;
 }
 
-.hover-accent, .footer__field--contacts .company-phone, .nav__list-item a, .header__phone a {
+.hover-accent, .footer__field--contacts .company-phone, .contacts__content .company-phone, .nav__list-item a, .header__phone a {
   -webkit-transition: color var(--main-transition);
   -o-transition: color var(--main-transition);
   transition: color var(--main-transition);
 }
-.hover-accent:hover, .footer__field--contacts .company-phone:hover, .nav__list-item a:hover, .header__phone a:hover, .hover-accent:focus, .footer__field--contacts .company-phone:focus, .nav__list-item a:focus, .header__phone a:focus {
+.hover-accent:hover, .footer__field--contacts .company-phone:hover, .contacts__content .company-phone:hover, .nav__list-item a:hover, .header__phone a:hover, .hover-accent:focus, .footer__field--contacts .company-phone:focus, .contacts__content .company-phone:focus, .nav__list-item a:focus, .header__phone a:focus {
   color: var(--accent);
 }
 
@@ -3728,6 +3728,13 @@ address {
     padding: 0;
   }
 }
+.company-manufacture-notice {
+  display: none;
+}
+.company-mail, .company-phone {
+  white-space: nowrap;
+}
+
 .developer-link {
   width: 168px;
   height: 44px;
@@ -4216,6 +4223,125 @@ address {
   .delivery__btn {
     margin-bottom: 40px;
   }
+}
+
+#yMaps {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 959px) {
+  #yMaps {
+    position: static;
+    height: 600px;
+  }
+}
+#yMaps .ymaps-icon-content-layout {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 5px;
+  -webkit-box-shadow: 0px 4px 10px rgba(100, 94, 112, 0.3);
+  box-shadow: 0px 4px 10px rgba(100, 94, 112, 0.3);
+  border-radius: 6px;
+  color: var(--text-color);
+  background-color: var(--white);
+}
+#yMaps .zoom-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 40px;
+  width: 100px;
+}
+#yMaps .zoom-btns button {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  -webkit-box-shadow: 0px 4px 10px rgba(100, 94, 112, 0.3);
+  box-shadow: 0px 4px 10px rgba(100, 94, 112, 0.3);
+  border-radius: 6px;
+  background-color: var(--white);
+}
+#yMaps .zoom-btns button:active {
+  background-color: var(--accent);
+}
+
+.contacts {
+  position: relative;
+}
+@media (max-width: 959px) {
+  .contacts {
+    padding-bottom: 0;
+  }
+}
+.contacts__content {
+  position: relative;
+  padding: 40px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: var(--white);
+  z-index: 3;
+}
+@media (max-width: 959px) {
+  .contacts__content {
+    padding: 0;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
+.contacts__content::before {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  content: "";
+  width: 100vw;
+  height: 100%;
+  background-color: var(--white);
+}
+.contacts__content .lw-section-title {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.contacts__content .lw-title-xs {
+  margin-bottom: 20px;
+}
+.contacts__content .company-manufacture-notice {
+  display: block;
+  color: var(--text-color);
+}
+.contacts__content .company-worktime,
+.contacts__content .company-phone,
+.contacts__content .company-mail,
+.contacts__content .company-office-address,
+.contacts__content .company-manufacture-address {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+.contacts__content .company-worktime {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--warning);
+}
+.contacts__content .company-manufacture-address {
+  margin-bottom: 0;
+}
+.contacts__content .company-phone {
+  font-size: 18px;
+  font-weight: 600;
+}
+.contacts__content .company-mail {
+  text-decoration: underline;
 }
 
 /* Секции конец*/

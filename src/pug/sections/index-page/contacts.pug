@@ -1,8 +1,25 @@
 include ../../mixins/section-title
 
 section.contacts
-  .lw-container
-    +section-title({
-      tag: 'h2',
-      title: 'Наши <span>контакты</span>'
-    })
+  .lw-container.contacts__container
+    .contacts__content
+      +section-title({
+        tag: 'h2',
+        title: 'Наши <span>контакты</span>'
+      })
+
+      span.lw-title-xs Офис продаж:
+      include ../../includes/company-office-address
+      include ../../includes/company-mail
+      include ../../includes/company-phone
+      include ../../includes/company-worktime
+
+      span.lw-title-xs Производство - склад:
+      include ../../includes/company-manufacture-address
+
+  #yMaps
+
+
+
+
+

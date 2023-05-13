@@ -9,6 +9,7 @@
     <title></title>
     <link rel="stylesheet" href="./assets/main.css"/>
     <script defer="defer" src="./assets/bundle.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=4aa8fccd-d097-4486-835a-704db2b05b2e&amp;lang=ru_RU" type="text/javascript"></script>
   </head>
   <body>
     <header class="header">
@@ -336,9 +337,13 @@
         </div>
       </section>
       <section class="contacts">
-        <div class="lw-container">
-                <h2 class="lw-section-title">Наши <span>контакты</span></h2>
+        <div class="lw-container contacts__container">
+          <div class="contacts__content">
+                  <h2 class="lw-section-title">Наши <span>контакты</span></h2><span class="lw-title-xs">Офис продаж:</span><span class="company-office-address">г.&nbsp;Санкт-Петербург, улица&nbsp;Седова,&nbsp;12&nbsp;БЦ&nbsp;Т4</span><a class="company-mail" href="mailto:office@ksbdoors.ru">office@ksbdoors.ru</a><a class="company-phone" href="tel:+78126029432">+7 (812) 602-94-32</a>
+            <div class="company-worktime"><span>Пн - Пт: 9:00 - 18:00</span><span>Сб - Вс: Выходной</span></div><span class="lw-title-xs">Производство - склад:</span><span class="company-manufacture-address">г.&nbsp;Санкт-Петербург, Большой Смоленский проспект, 11&nbsp;лит&nbsp;АЛ</span><small class="company-manufacture-notice">(въезд через шлагбаум с&nbsp;улицы Автогенная дом&nbsp;3)</small>
+          </div>
         </div>
+        <div id="yMaps"></div>
       </section>
     </main>
     <footer class="footer">
@@ -377,7 +382,7 @@
         </div>
         <div class="footer__field footer__field--contacts">
           <div class="footer__contacts"><span class="lw-title-xs">Офис продаж:</span><span class="company-office-address">г.&nbsp;Санкт-Петербург, улица&nbsp;Седова,&nbsp;12&nbsp;БЦ&nbsp;Т4</span><a class="company-mail" href="mailto:office@ksbdoors.ru">office@ksbdoors.ru</a><a class="company-phone" href="tel:+78126029432">+7 (812) 602-94-32</a>
-            <div class="company-worktime"><span>Пн - Пт: 9:00 - 18:00</span><span>Сб - Вс: Выходной</span></div><span class="lw-title-xs">Производство-склад:</span><span class="company-manufacture-address">г.&nbsp;Санкт-Петербург, Большой Смоленский проспект, 11&nbsp;лит&nbsp;АЛ</span>
+            <div class="company-worktime"><span>Пн - Пт: 9:00 - 18:00</span><span>Сб - Вс: Выходной</span></div><span class="lw-title-xs">Производство-склад:</span><span class="company-manufacture-address">г.&nbsp;Санкт-Петербург, Большой Смоленский проспект, 11&nbsp;лит&nbsp;АЛ</span><small class="company-manufacture-notice">(въезд через шлагбаум с&nbsp;улицы Автогенная дом&nbsp;3)</small>
           </div>
         </div>
       </div>
