@@ -146,19 +146,19 @@ if (strs) {
 
 /***/ }),
 
-/***/ "./src/scripts/modules/masonry.js":
-/*!****************************************!*\
-  !*** ./src/scripts/modules/masonry.js ***!
-  \****************************************/
+/***/ "./src/scripts/modules/msnry.js":
+/*!**************************************!*\
+  !*** ./src/scripts/modules/msnry.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var masonry_layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! masonry-layout */ "./node_modules/masonry-layout/masonry.js");
 /* harmony import */ var masonry_layout__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(masonry_layout__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _tags_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tags.js */ "./src/scripts/modules/tags.js");
-/* harmony import */ var imagesloaded__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! imagesloaded */ "./node_modules/imagesloaded/imagesloaded.js");
-/* harmony import */ var imagesloaded__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(imagesloaded__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var imagesloaded__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! imagesloaded */ "./node_modules/imagesloaded/imagesloaded.js");
+/* harmony import */ var imagesloaded__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(imagesloaded__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _tags_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tags.js */ "./src/scripts/modules/tags.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -177,10 +177,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 var layout = document.querySelector('.masonry');
 
 if (layout) {
-  var itemsToShow = 12;
+  var items = layout.querySelectorAll('.masonry-item img');
   var trigger = document.querySelector('.portfolio__btn');
-  var items = layout.querySelectorAll('.masonry-item');
   var msnry = null;
+  var step = 12;
+  var currentCount = step;
+  var currentValue = null;
 
   var setHiddenClass = function setHiddenClass(item) {
     !item.classList.contains('hidden') ? item.classList.add('hidden') : null;
@@ -189,90 +191,174 @@ if (layout) {
   var removeHiddenClass = function removeHiddenClass(item) {
     item.classList.contains('hidden') ? item.classList.remove('hidden') : null;
   };
-  /*items.forEach((item,index) => {
-    if(index > itemsToShow) {
-      setHiddenClass(item);
-    }
-  });*/
 
-
-  var msnryReload = function msnryReload() {
-    msnry.reloadItems();
-    msnry.layout();
+  var initGallery = function initGallery() {
+    imagesloaded__WEBPACK_IMPORTED_MODULE_1___default()(items, function () {
+      msnry = new (masonry_layout__WEBPACK_IMPORTED_MODULE_0___default())(layout, {
+        itemSelector: '.masonry-item',
+        columnWidth: '.masonry-sizer',
+        gutter: '.gutter-sizer',
+        percentPosition: true
+      });
+    });
+    return msnry;
   };
 
-  var setActiveItems = function setActiveItems() {
-    items.forEach(function (item, index) {
-      if (index < itemsToShow) {
-        removeHiddenClass(item);
-      }
+  var fillItems = function fillItems(arr, count) {
+    items.forEach(function (item) {
+      setHiddenClass(item.parentNode);
+    });
+    arr.forEach(function (item, index) {
+      if (index < count) removeHiddenClass(item.parentNode);
     });
 
-    if (itemsToShow >= items.length) {
+    if (arr.length <= count) {
       setHiddenClass(trigger);
+    } else {
+      removeHiddenClass(trigger);
     }
-
-    msnryReload();
   };
 
-  var imgs = layout.querySelectorAll('.masonry-item img');
-  imagesloaded__WEBPACK_IMPORTED_MODULE_2___default()(imgs, function () {
-    msnry = new (masonry_layout__WEBPACK_IMPORTED_MODULE_0___default())(layout, {
-      itemSelector: '.masonry-item',
-      columnWidth: '.masonry-sizer',
-      gutter: '.gutter-sizer',
-      percentPosition: true
+  var sortItems = function sortItems(value, count) {
+    new Promise(function (resolve, reject) {
+      var activeItems = [];
+      items.forEach(function (item) {
+        var data = item.dataset.tags.split(',');
+
+        if (data.includes(value)) {
+          activeItems.push(item);
+        }
+
+        setHiddenClass(item.parentNode);
+      });
+      resolve(activeItems);
+    }).then(function (activeItems) {
+      fillItems(activeItems, count);
     });
-  });
-  /*trigger.addEventListener('click', () => {
-    itemsToShow += itemsToShow;
-    setActiveItems();
-  });*/
+  };
 
-  var onClickSetMasonry = function onClickSetMasonry(evt) {
-    var value = evt.target.dataset.value;
+  var refillImages = function refillImages() {
+    imagesloaded__WEBPACK_IMPORTED_MODULE_1___default()(items, function () {
+      msnry.layout();
+    });
+  };
 
-    if (evt.target === trigger) {
-      console.log('trigger');
-    } else if (value && value === '0') {
-      console.log('0');
-    } else {
-      var prev = document.querySelector('button.active-tag');
-      var active = document.querySelector("button[data-value=\"".concat(value, "\"]"));
-      prev.classList.remove('active-tag');
-      active.classList.add('active-tag');
+  var showItems = function showItems(value, count) {
+    if (value === null) {
+      /*скрыть, показать*/
       new Promise(function (resolve, reject) {
-        imgs.forEach(function (img) {
-          setHiddenClass(img.parentNode);
-        });
-        resolve(imgs);
-      }).then(function (imgs) {
-        imgs.forEach(function (img) {
-          var data = img.dataset.tags.split(',');
-
-          if (data.includes(value)) {
-            removeHiddenClass(img.parentNode);
-          }
-        });
-        return imgs;
-      }).then(function (imgs) {
-        imagesloaded__WEBPACK_IMPORTED_MODULE_2___default()(imgs, function () {
-          msnry.layout();
-        });
+        resolve(fillItems(items, count));
+      }).then(function () {
+        refillImages();
+      });
+    } else {
+      /* скрыть, отсортировать, показать*/
+      new Promise(function (resolve, reject) {
+        resolve(sortItems(value, count));
+      }).then(function () {
+        refillImages();
       });
     }
   };
 
-  new Promise(function (resolve, reject) {
-    resolve((0,_tags_js__WEBPACK_IMPORTED_MODULE_1__.setTags)());
-  }).then(function () {
+  var setActiveTag = function setActiveTag(prev, current, value) {
+    prev.classList.remove('active-tag');
+    current.classList.add('active-tag');
+    document.querySelector('.custom-select-opener').innerHTML = "<span># ".concat(value, "</span>");
+  };
+
+  var onClickReloadMsnry = function onClickReloadMsnry(evt) {
+    var prev = document.querySelector('.active-tag');
+    if (evt.target.dataset.value === prev.dataset.value) return; // если это повторное нажатие на тег, то ничео не делаю
+
+    var next = document.querySelector("button[data-value=\"".concat(evt.target.dataset.value, "\""));
+
+    if (evt.target === trigger) {
+      currentCount += step;
+    } else {
+      if (evt.target.dataset.value === '0') {
+        currentValue = null;
+        currentCount = step; // если нужно уберать до начального кол-ва
+
+        setActiveTag(prev, next, 'Все двери');
+      } else {
+        currentCount = step; // если нужно уберать до начального кол-ва
+
+        currentValue = evt.target.dataset.value;
+        setActiveTag(prev, next, currentValue);
+      }
+    }
+
+    showItems(currentValue, currentCount);
+  };
+
+  var initButtons = function initButtons() {
     var btns = document.querySelectorAll('.tags__list button');
     var opts = document.querySelectorAll('.tags .custom-select-option');
     var controls = [].concat(_toConsumableArray(btns), _toConsumableArray(opts), [trigger]);
     controls.forEach(function (control) {
-      control.addEventListener('click', onClickSetMasonry);
+      control.addEventListener('click', onClickReloadMsnry);
     });
-  });
+  };
+
+  var init = function init() {
+    new Promise(function (resolve, reject) {
+      resolve(initGallery());
+    }).then(function () {
+      return fillItems(items, currentCount);
+    }).then(function () {
+      return (0,_tags_js__WEBPACK_IMPORTED_MODULE_2__.setTags)();
+    }).then(function () {
+      initButtons();
+    });
+  };
+
+  init();
+}
+
+/***/ }),
+
+/***/ "./src/scripts/modules/nav.js":
+/*!************************************!*\
+  !*** ./src/scripts/modules/nav.js ***!
+  \************************************/
+/***/ (() => {
+
+var opener = document.querySelector('.burger');
+
+if (opener) {
+  var nav = document.querySelector('.header__nav');
+  var closer = document.querySelector('.nav-closer');
+
+  var openNavHandler = function openNavHandler() {
+    nav.classList.add('active');
+    opener.removeEventListener('click', openNavHandler);
+    closer.addEventListener('click', closeNavHandler);
+    nav.addEventListener('click', onOverlayClickHandler);
+    document.addEventListener('keydown', onEscClickHandler);
+  };
+
+  var closeNavHandler = function closeNavHandler() {
+    nav.classList.remove('active');
+    opener.addEventListener('click', openNavHandler);
+    closer.removeEventListener('click', closeNavHandler);
+    nav.removeEventListener('click', onOverlayClickHandler);
+    document.removeEventListener('keydown', onEscClickHandler);
+  };
+
+  var onOverlayClickHandler = function onOverlayClickHandler(evt) {
+    if (evt.target === nav) {
+      closeNavHandler();
+    }
+  };
+
+  var onEscClickHandler = function onEscClickHandler(evt) {
+    if (evt.key === 'Escape') {
+      closeNavHandler();
+    }
+  };
+
+  opener.addEventListener('click', openNavHandler);
 }
 
 /***/ }),
@@ -372,7 +458,7 @@ function setTags() {
     (0,custom_select__WEBPACK_IMPORTED_MODULE_0__["default"])('.portfolio-custom-select');
     var tagsSlct = document.querySelector('.portfolio-custom-select').customSelect;
 
-    var fillTagList = function fillTagList(item, id) {
+    var fillTagList = function fillTagList(item) {
       var fragment = document.createDocumentFragment();
       var template = tagListButtonTemplate.content.cloneNode(true);
       var btn = template.querySelector('button');
@@ -388,11 +474,8 @@ function setTags() {
     };
 
     unique.forEach(function (item, index) {
-      console.log('item', item);
       fillTagList(item, index + 1);
     });
-  }).then(function () {
-    console.log('finished');
   });
 }
 
@@ -21195,15 +21278,17 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_limitStr_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/limitStr.js */ "./src/scripts/modules/limitStr.js");
 /* harmony import */ var _modules_limitStr_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_limitStr_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _modules_masonry_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/masonry.js */ "./src/scripts/modules/masonry.js");
-/* harmony import */ var _modules_custom_select_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/custom-select.js */ "./src/scripts/modules/custom-select.js");
-/* harmony import */ var _modules_input_number_mask_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/input-number-mask.js */ "./src/scripts/modules/input-number-mask.js");
-/* harmony import */ var _modules_swiper_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/swiper.js */ "./src/scripts/modules/swiper.js");
-/* harmony import */ var _modules_fancybox_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/fancybox.js */ "./src/scripts/modules/fancybox.js");
-/* harmony import */ var _modules_yMaps_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/yMaps.js */ "./src/scripts/modules/yMaps.js");
-/* harmony import */ var _modules_yMaps_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_modules_yMaps_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _modules_nav_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/nav.js */ "./src/scripts/modules/nav.js");
+/* harmony import */ var _modules_nav_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_nav_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_msnry_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/msnry.js */ "./src/scripts/modules/msnry.js");
+/* harmony import */ var _modules_custom_select_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/custom-select.js */ "./src/scripts/modules/custom-select.js");
+/* harmony import */ var _modules_input_number_mask_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/input-number-mask.js */ "./src/scripts/modules/input-number-mask.js");
+/* harmony import */ var _modules_swiper_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/swiper.js */ "./src/scripts/modules/swiper.js");
+/* harmony import */ var _modules_fancybox_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/fancybox.js */ "./src/scripts/modules/fancybox.js");
+/* harmony import */ var _modules_yMaps_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/yMaps.js */ "./src/scripts/modules/yMaps.js");
+/* harmony import */ var _modules_yMaps_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_modules_yMaps_js__WEBPACK_IMPORTED_MODULE_7__);
 
- //import "./modules/tags.js";
+
 
 
 

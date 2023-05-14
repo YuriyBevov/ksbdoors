@@ -18,7 +18,7 @@ export function setTags() {
     customSelect('.portfolio-custom-select');
     const tagsSlct = document.querySelector('.portfolio-custom-select').customSelect;
 
-    const fillTagList = (item, id) => {
+    const fillTagList = (item) => {
       const fragment = document.createDocumentFragment();
       const template = tagListButtonTemplate.content.cloneNode(true);
       const btn = template.querySelector('button');
@@ -30,18 +30,14 @@ export function setTags() {
       tagList.appendChild(fragment);
 
       const option = document.createElement('option');
-      option.text = tagContent;
+      option.text  = tagContent;
       option.value = item;
 
       tagsSlct.append(option);
     };
 
     unique.forEach((item, index) => {
-      console.log('item', item);
-
       fillTagList(item, index + 1);
     });
-  }).then(() => {
-    console.log('finished');
   });
 }
