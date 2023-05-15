@@ -1,0 +1,25 @@
+include ../mixins/main-input
+include ../mixins/custom-select
+
+form(action='#' id="callback-form").callback-form
+  .callback-form__field
+    +main-input({
+      type: 'text',
+      placeholder: 'Имя*',
+      id: 'user_name',
+      required: true,
+      name: 'Имя'
+    })
+  .callback-form__field
+    +main-input({
+      type: 'tel',
+      placeholder: 'Телефон*',
+      id: 'user_phone',
+      required: true,
+      name: 'Телефон'
+    })
+
+  .callback-form__footer
+    button(type="submit").lw-main-btn Рассчитать стоимость
+    small Нажимая на кнопку вы соглашаетесь с&nbsp;<a href="#">обработкой персональных</a> данных.
+

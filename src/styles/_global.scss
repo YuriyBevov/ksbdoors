@@ -46,6 +46,10 @@ a {
   text-decoration: none;
 }
 
+a[href="tel:*"] {
+  white-space: nowrap;
+}
+
 section {
   @extend .lw-section;
 }

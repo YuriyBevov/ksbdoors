@@ -1,6 +1,7 @@
 include ../../mixins/section-title
+include ../../mixins/main-btn
 
-section.company
+section.company#company
   .lw-container.company__container
     .company__side
       +section-title({
@@ -15,8 +16,12 @@ section.company
         p Наша компания имеет лицензию МЧС на выполнение монтажных работ противопожарных конструкций. Наша компания, предоставляет гарантию на производимую продукцию, поэтому к замерам, производству и к монтажу подходим профессионально, чтобы готовые изделия были надежны и служили долгое время.
         p Обратившись к нам за комплексом услуг, Вы избежите многих проблем и гарантированно сдадите свой объект контролирующим органам.
 
-      button(type="button").lw-section-btn.lw-main-btn Связаться с менеджером
-
+      +main-btn({
+        title: 'Связаться с менеджером',
+        cls: 'lw-section-btn js-callback-modal-opener',
+        modal: 'callback',
+        url: '#',
+      })
     .company__side.pattern-container
       .pattern-wrapper
         img(src="./assets/img/company-img.jpg" alt="О компании" width="480" height="600")

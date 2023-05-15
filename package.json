@@ -49,6 +49,7 @@
   "dependencies": {
     "@fancyapps/ui": "^5.0.17",
     "custom-select": "^1.1.15",
+    "gsap": "file:gsap-bonus.tgz",
     "imagesloaded": "^5.0.0",
     "imask": "^6.6.1",
     "masonry-layout": "^4.2.2",

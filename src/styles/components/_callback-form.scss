@@ -1,0 +1,18 @@
+.callback-form {
+  &__field {
+    margin-bottom: 20px;
+  }
+
+  &__footer {
+    small {
+      color: var(--text-color);
+
+      a {
+        font-weight: 600;
+        color: var(--text-color);
+
+        @extend .hover-opacity;
+      }
+    }
+  }
+}

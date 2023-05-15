@@ -1,0 +1,12 @@
+.modal.callback-modal#callback
+  .modal__overlay
+    .modal__content
+      .modal__header
+        button(type="button" aria-label="Закрыть").modal-closer
+          svg(width="18" height="18")
+            use(xlink:href="./assets/sprite.svg#icon-close")
+
+        span.lw-section-title Заказать <span>звонок</span>
+        span.modal__header-text Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения.
+      .modal__body
+        include ../components/callback-form

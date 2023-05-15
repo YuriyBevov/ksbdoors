@@ -1,7 +1,7 @@
 include ../../mixins/section-title
 include ../../mixins/main-btn
 
-section.hero
+section.hero#hero
   .lw-container.hero__container
 
     .hero__underlay-bg(aria-hidden="true")
@@ -24,6 +24,8 @@ section.hero
 
         +main-btn({
           title: 'Вызвать замерщика',
+          cls: 'js-callback-modal-opener',
+          modal: 'callback',
           url: '#',
           notice: '*Выезд замерщика на объект в черте КАД бесплатный'
         })

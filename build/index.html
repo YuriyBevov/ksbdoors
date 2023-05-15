@@ -12,6 +12,7 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=4aa8fccd-d097-4486-835a-704db2b05b2e&amp;lang=ru_RU" type="text/javascript"></script>
   </head>
   <body>
+    <div class="loader"><div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
     <header class="header">
       <div class="lw-container header__container"><a class="company-logo" href="index.html"><img src="./assets/img/icon-logo.svg" alt="Завод металлических дверей" width="218" height="50"></a>
         <div class="header__nav">
@@ -22,12 +23,15 @@
           </button>
           <nav class="nav">
             <ul class="nav__list">
-              <li class="nav__list-item"><a href="#">О компании</a></li>
-              <li class="nav__list-item"><a href="#">Примеры работ</a></li>
-              <li class="nav__list-item"><a href="#">Лицензии и Сертификаты</a></li>
-              <li class="nav__list-item"><a href="#">Доставка и оплата</a></li>
-              <li class="nav__list-item"><a href="#">Контакты</a></li>
-              <li class="nav__list-item nav__list-item--confidentiality"><a href="#">Политика конфиденциальности</a></li>
+              <li class="nav__list-item"><a class="anchor-link" href="#company">О компании</a></li>
+              <li class="nav__list-item"><a class="anchor-link" href="#portfolio">Примеры работ</a></li>
+              <li class="nav__list-item"><a class="anchor-link" href="#licenses">Лицензии и Сертификаты</a></li>
+              <li class="nav__list-item"><a class="anchor-link" href="#delivery">Доставка и оплата</a></li>
+              <li class="nav__list-item"><a class="anchor-link" href="#contacts">Контакты</a></li>
+              <!--li.nav__list-item.nav__list-item--confidentiality
+              a(href="#") Политика конфиденциальности
+              
+              -->
             </ul>
             <div class="nav__info"><a class="company-phone" href="tel:+78126029432">+7 (812) 602-94-32</a>
               <div class="company-worktime"><span>Пн - Пт: 9:00 - 18:00</span><span>Сб - Вс: Выходной</span></div>
@@ -36,7 +40,7 @@
           </nav>
         </div>
         <div class="header__phone"><a class="company-phone" href="tel:+78126029432">+7 (812) 602-94-32</a></div>
-        <button class="header__callback" type="button" aria-label="Заказать обратный звонок">
+        <button class="header__callback js-callback-modal-opener" type="button" aria-label="Заказать обратный звонок" data-modal-anchor="callback">
           <svg width="20" height="20">
             <use xlink:href="./assets/sprite.svg#icon-phone"></use>
           </svg>
@@ -49,7 +53,7 @@
       </div>
     </header>
     <main>
-      <section class="hero">
+      <section class="hero" id="hero">
         <div class="lw-container hero__container">
           <div class="hero__underlay-bg" aria-hidden="true"></div>
           <div class="hero__content">
@@ -62,7 +66,7 @@
                 <li>Двери для входных групп (подъездные двери)</li>
                 <li>Тамбурные двери</li>
                 <li>Двери для лифтовых и приквартирных холлов</li>
-              </ul><a class="lw-main-btn" href="#">Вызвать замерщика</a><small>*Выезд замерщика на объект в черте КАД бесплатный</small>
+              </ul><a class="lw-main-btn js-callback-modal-opener" href="#" data-modal-anchor="callback">Вызвать замерщика</a><small>*Выезд замерщика на объект в черте КАД бесплатный</small>
             </div>
             <div class="hero__content-side pattern-container">
               <div class="pattern-wrapper"><img src="./assets/img/hero-img.jpg" alt="Изображение производства" width="740" height="540"></div>
@@ -70,7 +74,7 @@
           </div>
         </div>
       </section>
-      <section class="features lw-alt-bg">
+      <section class="features lw-alt-bg" id="features">
         <div class="lw-container">
                 <h1 class="lw-section-title"><span>Преимущества</span></h1>
           <ul class="features__list">
@@ -125,7 +129,7 @@
           </ul>
         </div>
       </section>
-      <section class="company">
+      <section class="company" id="company">
         <div class="lw-container company__container">
           <div class="company__side">
                   <h2 class="lw-section-title">О&nbsp;<span>компании</span></h2>
@@ -135,15 +139,14 @@
               <p>Все работы, связанные с монтажом и обслуживанием металлических дверей, выполняют профессиональные бригады монтажников. Если требуется изготовить и установить противопожарную дверь, то мы на законном основании можем выполнить такой заказ.</p>
               <p>Наша компания имеет лицензию МЧС на выполнение монтажных работ противопожарных конструкций. Наша компания, предоставляет гарантию на производимую продукцию, поэтому к замерам, производству и к монтажу подходим профессионально, чтобы готовые изделия были надежны и служили долгое время.</p>
               <p>Обратившись к нам за комплексом услуг, Вы избежите многих проблем и гарантированно сдадите свой объект контролирующим органам.</p>
-            </div>
-            <button class="lw-section-btn lw-main-btn" type="button">Связаться с менеджером</button>
+            </div><a class="lw-main-btn lw-section-btn js-callback-modal-opener" href="#" data-modal-anchor="callback">Связаться с менеджером</a>
           </div>
           <div class="company__side pattern-container">
             <div class="pattern-wrapper"><img src="./assets/img/company-img.jpg" alt="О компании" width="480" height="600"></div>
           </div>
         </div>
       </section>
-      <section class="portfolio lw-alt-bg">
+      <section class="portfolio lw-alt-bg" id="portfolio">
         <div class="lw-container">
                 <h2 class="lw-section-title">Наши <span>работы</span></h2>
           <div class="tags">
@@ -238,10 +241,10 @@
             <div class="masonry-item"><img data-fancybox-item data-tags="С фрамугой,Остекленные" src="./assets/img/portfolio/portfolio_8.jpg" alt="Портфолио" width="100%" height="100%"></div>
             <div class="masonry-item"><img data-fancybox-item data-tags="С антипаникой,С отбойниками" src="./assets/img/portfolio/portfolio_9.jpg" alt="Портфолио" width="100%" height="100%"></div>
           </div>
-          <button class="lw-main-btn portfolio__btn" type="button">Показать еще</button>
+                <button class="lw-main-btn portfolio__btn">Показать еще</button>
         </div>
       </section>
-      <section class="workflow">
+      <section class="workflow" id="workflow">
         <div class="lw-container">
                 <h2 class="lw-section-title">Этапы <span>работ</span></h2>
           <ul class="workflow__list">
@@ -278,7 +281,7 @@
           </ul>
         </div>
       </section>
-      <section class="quarantee lw-alt-bg">
+      <section class="quarantee lw-alt-bg" id="quarantee">
         <div class="lw-container">
                 <h2 class="lw-section-title"><span>Гарантии</span></h2>
           <ul class="guarantee__list">
@@ -309,7 +312,7 @@
           </ul>
         </div>
       </section>
-      <section class="licenses">
+      <section class="licenses" id="licenses">
         <div class="lw-container">
                 <h2 class="lw-section-title">Лицензии и <span>сертификаты</span></h2>
                 <div class="swiper main-slider licenses__slider" data-fancybox-gallery="licenses">
@@ -337,7 +340,7 @@
                 </div>
         </div>
       </section>
-      <section class="delivery">
+      <section class="delivery" id="delivery">
         <div class="lw-container delivery__container">
                 <h2 class="lw-section-title">Доставка и <span>монтаж</span></h2>
           <div class="delivery__side">
@@ -351,43 +354,42 @@
               <p>Для оформления счета Вам необходимо выслать Ваши реквизиты на электронную почту <a href="mailto:office@ksbdoors.ru">office@ksbdoors.ru</a></p>
               <p>Счет на оплату формируется на основании согласованной спецификации.</p>
               <p>Заказ передается на производство после поступления оплаты на наш расчетный счет.</p>
-              <p>Для получения более подробной информации по условиям оплаты обращайтесь к нашим менеджерам по телефону <a href="tel:88126029432">+7 (812) 602-94-32</a></p>
-            </div>
-            <button class="delivery__btn lw-main-btn" type="button">Связаться с менеджером</button>
+              <p>Для получения более подробной информации по условиям оплаты обращайтесь к нашим менеджерам по телефону <a href="tel:88126029432" class="company-phone">+7 (812) 602-94-32</a></p>
+            </div><a class="lw-main-btn js-callback-modal-opener" href="#" data-modal-anchor="callback">Связаться с менеджером</a>
           </div>
           <div class="delivery__side pattern-container">
             <div class="pattern-wrapper"><img src="./assets/img/map-img.jpg" alt="Доставка в черте города - бесплатно" width="600" height="600"></div>
           </div>
         </div>
       </section>
-      <section class="offer">
+      <section class="offer" id="offer">
         <div class="lw-container">
           <div class="offer__container">
             <div class="offer__side offer__side--form-container">
                     <h2 class="lw-section-title">Рассчитать <span>стоимость</span></h2>
               <p class="offer__desc">Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения.</p>
-              <form class="offer-form" action="#" id="offer-form">
+              <form class="offer-form" action="mail.php" id="offer-form">
                 <div class="offer-form__field">
-                        <select class="common-custom-select" id="door_type">
-                          <option value="type_0" selected>Выберите тип двери</option>
-                          <option value="type_1">Противопожарные двери</option>
-                          <option value="type_2">Технические двери</option>
-                          <option value="type_3">Двери для входных групп (подъездные двери)</option>
-                          <option value="type_4">Тамбурные двери</option>
-                          <option value="type_5">Двери для лифтовых и приквартирных холлов</option>
-                        </select>
+                                <select class="common-custom-select" id="door_type">
+                                  <option value="type_0" selected>Выберите тип двери</option>
+                                  <option value="type_1">Противопожарные двери</option>
+                                  <option value="type_2">Технические двери</option>
+                                  <option value="type_3">Двери для входных групп (подъездные двери)</option>
+                                  <option value="type_4">Тамбурные двери</option>
+                                  <option value="type_5">Двери для лифтовых и приквартирных холлов</option>
+                                </select>
                 </div>
                 <div class="offer-form__field">
-                        <input class="lw-main-input" type="text" name="Размер двери" placeholder="Размеры: например 2000 х 2000 мм" id="door_size">
+                                <input class="lw-main-input" type="text" name="Размер двери" placeholder="Размеры: например 2000 х 2000 мм" id="door_size">
                 </div>
                 <div class="offer-form__field">
-                        <input class="lw-main-input" type="tel" name="Имя" placeholder="Имя*" id="user_name">
+                                <input class="lw-main-input" type="text" name="Имя" placeholder="Имя*" id="user_name" data-required>
                 </div>
                 <div class="offer-form__field">
-                        <input class="lw-main-input" type="text" name="E-mail" placeholder="Электронная почта" id="user_email">
+                                <input class="lw-main-input" type="text" name="E-mail" placeholder="Электронная почта" id="user_email">
                 </div>
                 <div class="offer-form__field">
-                        <input class="lw-main-input" type="tel" name="Телефон" placeholder="Телефон*" id="user_phone">
+                                <input class="lw-main-input" type="tel" name="Телефон" placeholder="Телефон*" id="user_phone" data-required>
                 </div>
                 <div class="offer-form__footer">
                   <button class="lw-main-btn" type="submit">Рассчитать стоимость</button><small>Нажимая на кнопку вы соглашаетесь с&nbsp;<a href="#">обработкой персональных</a> данных.</small>
@@ -398,7 +400,7 @@
           </div>
         </div>
       </section>
-      <section class="objects">
+      <section class="objects" id="objects">
         <div class="lw-container">
                 <h2 class="lw-section-title">Наши <span>объекты</span></h2>
                 <div class="swiper main-slider licenses__slider" data-fancybox-gallery="objects">
@@ -426,7 +428,7 @@
                 </div>
         </div>
       </section>
-      <section class="contacts">
+      <section class="contacts" id="contacts">
         <div class="lw-container contacts__container">
           <div class="contacts__content">
                   <h2 class="lw-section-title">Наши <span>контакты</span></h2><span class="lw-title-xs">Офис продаж:</span><span class="company-office-address">г.&nbsp;Санкт-Петербург, улица&nbsp;Седова,&nbsp;12&nbsp;БЦ&nbsp;Т4</span><a class="company-mail" href="mailto:office@ksbdoors.ru">office@ksbdoors.ru</a><a class="company-phone" href="tel:+78126029432">+7 (812) 602-94-32</a>
@@ -457,12 +459,15 @@
         <div class="footer__field footer__field--nav footer__nav">
           <nav class="nav">
             <ul class="nav__list">
-              <li class="nav__list-item"><a href="#">О компании</a></li>
-              <li class="nav__list-item"><a href="#">Примеры работ</a></li>
-              <li class="nav__list-item"><a href="#">Лицензии и Сертификаты</a></li>
-              <li class="nav__list-item"><a href="#">Доставка и оплата</a></li>
-              <li class="nav__list-item"><a href="#">Контакты</a></li>
-              <li class="nav__list-item nav__list-item--confidentiality"><a href="#">Политика конфиденциальности</a></li>
+              <li class="nav__list-item"><a class="anchor-link" href="#company">О компании</a></li>
+              <li class="nav__list-item"><a class="anchor-link" href="#portfolio">Примеры работ</a></li>
+              <li class="nav__list-item"><a class="anchor-link" href="#licenses">Лицензии и Сертификаты</a></li>
+              <li class="nav__list-item"><a class="anchor-link" href="#delivery">Доставка и оплата</a></li>
+              <li class="nav__list-item"><a class="anchor-link" href="#contacts">Контакты</a></li>
+              <!--li.nav__list-item.nav__list-item--confidentiality
+              a(href="#") Политика конфиденциальности
+              
+              -->
             </ul>
             <div class="nav__info"><a class="company-phone" href="tel:+78126029432">+7 (812) 602-94-32</a>
               <div class="company-worktime"><span>Пн - Пт: 9:00 - 18:00</span><span>Сб - Вс: Выходной</span></div>
@@ -480,7 +485,69 @@
         <div class="lw-container footer__bottom-container"><span class="company-rights">Copyright © ООО "Комплексные Системы Безопастности - изготовление противопожарных дверей"</span><a class="developer-link" href="https://littleweb.ru/" rel="noopener nofollow norefferer" aria-label="LittleWeb.ru - создание сайтов под ключ"><img src="./assets/img/icon-developer.svg" width="168" height="44"></a></div>
       </div>
     </footer>
-    <!--include ./modals/...-->
-    <!--script(src="./js/bundle.js")-->
+    <div class="modal callback-modal" id="callback">
+      <div class="modal__overlay">
+        <div class="modal__content">
+          <div class="modal__header">
+            <button class="modal-closer" type="button" aria-label="Закрыть">
+              <svg width="18" height="18">
+                <use xlink:href="./assets/sprite.svg#icon-close"></use>
+              </svg>
+            </button><span class="lw-section-title">Заказать <span>звонок</span></span><span class="modal__header-text">Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения.</span>
+          </div>
+          <div class="modal__body">
+            <form class="callback-form" action="#" id="callback-form">
+              <div class="callback-form__field">
+                            <input class="lw-main-input" type="text" name="Имя" placeholder="Имя*" id="user_name" data-required>
+              </div>
+              <div class="callback-form__field">
+                            <input class="lw-main-input" type="tel" name="Телефон" placeholder="Телефон*" id="user_phone" data-required>
+              </div>
+              <div class="callback-form__footer">
+                <button class="lw-main-btn" type="submit">Рассчитать стоимость</button><small>Нажимая на кнопку вы соглашаетесь с&nbsp;<a href="#">обработкой персональных</a> данных.</small>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="modal state-modal success-modal" id="success-modal">
+          <div class="modal__overlay">
+            <div class="modal__content">
+              <div class="modal__header">
+                <button class="modal-closer" type="button" aria-label="Закрыть">
+                  <svg width="18" height="18">
+                    <use xlink:href="./assets/sprite.svg#icon-close"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="modal__body">
+                <svg width="48" height="48">
+                  <use xlink:href="./assets/sprite.svg#icon-success"></use>
+                </svg><span class="lw-section-title">Ваша заявка успешно отправлена!</span>
+              </div>
+              <div class="modal__footer"><span>Таким образом дальнейшее развитие различных форм деятельности требуют</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal state-modal error-modal" id="error-modal">
+          <div class="modal__overlay">
+            <div class="modal__content">
+              <div class="modal__header">
+                <button class="modal-closer" type="button" aria-label="Закрыть">
+                  <svg width="18" height="18">
+                    <use xlink:href="./assets/sprite.svg#icon-close"></use>
+                  </svg>
+                </button>
+              </div>
+              <div class="modal__body">
+                <svg width="48" height="48">
+                  <use xlink:href="./assets/sprite.svg#icon-error"></use>
+                </svg><span class="lw-section-title">Ошибка отправки!</span>
+              </div>
+              <div class="modal__footer"><span>Таким образом дальнейшее развитие различных форм деятельности требуют от нас анализа системы обучения.</span></div>
+            </div>
+          </div>
+        </div>
   </body>
 </html>

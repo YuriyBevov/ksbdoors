@@ -20,7 +20,8 @@
 @import "./components/info-card";
 @import "./components/main-slider";
 @import "./components/offer-form";
-
+@import "./components/callback-form";
+@import "./components/loader";
 /* Компоненты конец*/
 
 /* Секции */
@@ -41,6 +42,7 @@
 
 /* Модальные окна */
 @import "./modals/modal";
-/* Модальные окна конец*/
+@import "./modals/callback-modal";
+@import "./modals/state-modal";
 
 

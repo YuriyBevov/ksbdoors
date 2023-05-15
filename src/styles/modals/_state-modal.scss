@@ -1,0 +1,33 @@
+.state-modal {
+  &.error-modal .modal__body svg {
+    fill: var(--error);
+  }
+
+  &.success-modal .modal__body svg {
+    fill: var(--success);
+  }
+
+  .modal {
+    &__body {
+      svg {
+        margin-bottom: 10px;
+      }
+
+      .lw-section-title {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+
+    &__footer {
+      span {
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1.4;
+        text-align: center;
+        color: var(--text-color);
+      }
+    }
+  }
+}

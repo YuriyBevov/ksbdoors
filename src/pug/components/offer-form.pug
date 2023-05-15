@@ -1,4 +1,7 @@
-form(action='#' id="offer-form").offer-form
+include ../mixins/main-input
+include ../mixins/custom-select
+
+form(action='mail.php' id="offer-form").offer-form
   .offer-form__field
     +custom-select({
       id: 'door_type',
@@ -21,9 +24,10 @@ form(action='#' id="offer-form").offer-form
     })
   .offer-form__field
     +main-input({
-      type: 'tel',
+      type: 'text',
       placeholder: 'Имя*',
       id: 'user_name',
+      required: true,
       name: 'Имя'
     })
   .offer-form__field
@@ -37,6 +41,7 @@ form(action='#' id="offer-form").offer-form
     +main-input({
       type: 'tel',
       placeholder: 'Телефон*',
+      required: true,
       id: 'user_phone',
       name: 'Телефон'
     })

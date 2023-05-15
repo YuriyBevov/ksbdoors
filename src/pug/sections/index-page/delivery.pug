@@ -1,6 +1,7 @@
 include ../../mixins/section-title
+include ../../mixins/main-btn
 
-section.delivery
+section.delivery#delivery
   .lw-container.delivery__container
     +section-title({
       tag: 'h2',
@@ -24,9 +25,14 @@ section.delivery
 
         p Заказ передается на производство после поступления оплаты на наш расчетный счет.
 
-        p Для получения более подробной информации по условиям оплаты обращайтесь к нашим менеджерам по телефону <a href="tel:88126029432">+7 (812) 602-94-32</a>
+        p Для получения более подробной информации по условиям оплаты обращайтесь к нашим менеджерам по телефону <a href="tel:88126029432" class="company-phone">+7 (812) 602-94-32</a>
 
-      button(type="button").delivery__btn.lw-main-btn Связаться с менеджером
+      +main-btn({
+        title: 'Связаться с менеджером',
+        cls: 'js-callback-modal-opener',
+        modal: 'callback',
+        url: '#',
+      })
 
     .delivery__side.pattern-container
       .pattern-wrapper

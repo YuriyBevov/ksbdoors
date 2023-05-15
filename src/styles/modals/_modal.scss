@@ -1,0 +1,57 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 199;
+
+  display: none;
+
+  &.active {
+    display: block;
+  }
+
+  &-closer {
+    @extend .flex-centered-content;
+    @extend .btn-reset;
+
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    width: 40px;
+    height: 40px;
+
+    svg {
+      fill: var(--text-color);
+    }
+  }
+
+  &__overlay {
+    @extend .flex-centered-content;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+  }
+
+  &__content {
+    position: relative;
+    @extend .flex-column;
+    width: fit-content;
+    max-width: 360px;
+
+    height: fit-content;
+    max-height: 85vh;
+    padding: 25px;
+    overflow: hidden;
+    overflow-y: auto;
+
+    background-color: var(--modal-bg-color);
+  }
+
+  &__body {
+    @extend .flex-column;
+    align-items: center;
+  }
+}
