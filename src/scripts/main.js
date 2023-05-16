@@ -9,6 +9,7 @@ import "./modules/input-number-mask.js";
 import "./modules/swiper.js";
 import "./modules/fancybox.js";
 import "./modules/yMaps.js";
+import "./modules/animations/header.js";
 
 
 import { Modal } from "./classes/Modal.js";

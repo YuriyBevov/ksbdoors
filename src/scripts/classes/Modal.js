@@ -3,15 +3,17 @@ import { gsap } from 'gsap';
 
 export class Modal {
   constructor( modal, options = {} ) {
-    this.isBodyLocked = options.isBodyLocked ? true : false,
-    this.modal = modal;
-    this.id = this.modal.getAttribute('id');
-    this.openers = document.querySelectorAll('[data-modal-anchor="' + this.id + '"]');
-    this.isInited = false;
-    this.overlay = document.querySelector('.modal__overlay');
-    this.underlay = null;
-    this.content = this.modal.querySelector('.modal__content');
-    this.close = this.modal.querySelector('.modal-closer');
+    this.preventBodyLock = options.preventBodyLock ? true : false,
+
+    this.modal           = modal;
+    this.overlay         = this.modal.querySelector('.modal__overlay');
+    this.content         = this.modal.querySelector('.modal__content');
+    this.close           = this.modal.querySelector('.modal-closer');
+
+    this.id              = this.modal.getAttribute('id');
+    this.openers         = document.querySelectorAll('[data-modal-anchor="' + this.id + '"]');
+    this.isInited        = false;
+
     this.focusableElements = [
       'a[href]',
       'input',
@@ -27,15 +29,15 @@ export class Modal {
   }
 
   bodyLocker = (bool) => {
-    let body = document.querySelector('body');
-    let paddingOffset = window.innerWidth - document.body.offsetWidth + 'px';
+    const body = document.querySelector('body');
+    //const paddingOffset = window.innerWidth - document.body.offsetWidth + 'px';
 
     if(bool) {
       body.style.overflow = 'hidden';
-      body.style.paddingRight = paddingOffset;
+      //body.style.paddingRight = paddingOffset;
     } else {
       body.style.overflow = 'auto';
-      body.style.paddingRight = '0px';
+      //body.style.paddingRight = '0px';
     }
   }
 
@@ -100,32 +102,30 @@ export class Modal {
 
     gsap.fromTo(this.modal, {display: 'flex'}, {
       opacity: 0,
-      duration: 1,
+      duration: .6,
       ease: 'ease-in',
       onComplete: () => {
         this.modal.style.display = 'none';
+        //если в модалке есть форма, при закрытии обнуляю поля
+        this.modal.querySelectorAll('form').forEach(f=>f.reset());
       }
     });
 
-    this.bodyLocker(false);
+    !this.preventBodyLock ?
+    this.bodyLocker(false) : null;
+
+    this.preventBodyLock = false;
 
     if(this.openers) {
       this.openers.forEach(opener => {
           opener.addEventListener('click', this.openModal);
       });
     }
-
-    //если в модалке есть форма, при закрытии обнуляю поля
-    this.modal.querySelectorAll('form').forEach(f=>f.reset());
   }
 
   closeByOverlayClick = (evt) => {
-    if(evt.target === this.overlay || evt.target === this.underlay ) {
+    if(evt.target === this.overlay) {
       this.refresh();
-    }
-
-    if(evt.target === this.underlay) {
-      this.bodyLocker(true);
     }
   }
 
@@ -142,32 +142,33 @@ export class Modal {
   openModal = (evt) => {
     evt.preventDefault();
 
+    this.bodyLocker(true);
     gsap.fromTo(this.modal, {display: 'none', opacity: 0}, {
       display: 'flex',
       opacity: 1,
-      duration: 1,
-      ease: 'ease-in'
-    })
-
-    this.addListeners();
-    this.focusTrap();
-    this.bodyLocker(true);
+      duration: .6,
+      ease: 'ease-in',
+      onComplete: () => {
+        this.addListeners();
+        this.focusTrap();
+      }
+    });
   }
 
   show = () => {
+    this.isBodyLocked ?
+    this.bodyLocker(true) : null;
 
     gsap.fromTo(this.modal, {display: 'none', opacity: 0}, {
       display: 'flex',
       opacity: 1,
-      duration: 1,
-      ease: 'ease-in'
+      duration: .6,
+      ease: 'ease-in',
+      onComplete: () => {
+        this.addListeners();
+        this.focusTrap();
+      }
     });
-
-    this.underlay = this.modal.querySelector('.modal__overlay');
-
-    this.addListeners();
-    this.focusTrap();
-    this.bodyLocker(true);
   }
 
   init() {
@@ -175,7 +176,7 @@ export class Modal {
           this.isInited = true;
 
           this.openers.forEach(opener => {
-              opener.addEventListener('click', this.openModal, this.modal, this.overlay);
+              opener.addEventListener('click', this.openModal);
           })
       } else {
           console.error('Не добавлена кнопка открытия модального окна, либо в ней не прописан аттр-т: data-modal-anchor={modal-id} ')

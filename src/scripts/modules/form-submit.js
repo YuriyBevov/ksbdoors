@@ -1,7 +1,5 @@
 import { formValidation } from "./form-validation";
-
 const btns = document.querySelectorAll('[type="submit"]');
-console.log(btns);
 
 if(btns) {
   btns.forEach(btn => {

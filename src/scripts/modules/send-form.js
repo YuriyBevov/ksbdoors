@@ -13,19 +13,18 @@ export function sendForm(form) {
   }
 
   function success() {
-    console.log('SHOW SUCCESS');
-
     hideLoader();
     form.reset();
-
     new Modal(successModal).show();
   }
 
   function error() {
-    console.log('SHOW ERROR', modal);
-
-    hideLoader();
-    new Modal(errorModal).show();
+    setTimeout(() => {
+      hideLoader();
+      new Modal(errorModal, {
+        preventBodyLock: true
+      }).show();
+    }, 2000);
   }
 
   // handle the form submission event

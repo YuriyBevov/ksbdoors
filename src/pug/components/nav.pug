@@ -1,4 +1,8 @@
 nav.nav
+  .nav__line(aria-hidden="true")
+  button(type="button" aria-label="Закрыть меню").nav-closer
+    svg(width="20" height="20")
+      use(xlink:href="./assets/sprite.svg#icon-close")
   ul.nav__list
     li.nav__list-item
       a(href="#company").anchor-link О компании
