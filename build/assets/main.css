@@ -3020,6 +3020,8 @@ template {
   --alt-bg: var(--light);
   --main-bg: var(--white);
   --modal-bg-color: var(--white);
+  --retina-dppx: 1.5dppx;
+  --retina-dpi: 144dpi;
   --main-scrollbar-width: 10px;
   --main-scrollbar-color: var(--white);
   --main-scrollbar-thumb-color: var(--warning);
@@ -4106,19 +4108,19 @@ address {
 }
 
 .loader {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 9999;
 }
 .loader.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  opacity: 1 !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
 }
 
 .lds-grid {
@@ -4235,6 +4237,22 @@ address {
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 0;
+}
+.hero__underlay-bg .webp {
+  background-image: url("../assets/img/hero-bg.webp");
+}
+@media (min-resolution: var(--retina-dppx)) and (min-resolution: --retina-dpi) {
+  .hero__underlay-bg .webp {
+    background-image: url("../assets/img/hero-bg2x.webp");
+  }
+}
+.hero__underlay-bg .no-webp {
+  background-image: url("../assets/img/hero-bg.png");
+}
+@media (min-resolution: var(--retina-dppx)) and (min-resolution: var(--retina-dpi)) {
+  .hero__underlay-bg .no-webp {
+    background-image: url("../assets/img/hero-bg2x.png");
+  }
 }
 @media (max-width: 959px) {
   .hero__underlay-bg {

@@ -53,6 +53,7 @@
     "imagesloaded": "^5.0.0",
     "imask": "^6.6.1",
     "masonry-layout": "^4.2.2",
+    "modernizr": "^3.12.0",
     "swiper": "^8.4.5"
   },
   "repository": {

@@ -24,5 +24,8 @@ section.company#company
       })
     .company__side.pattern-container
       .pattern-wrapper
-        img(src="./assets/img/company-img.jpg" alt="О компании" width="480" height="600")
+        picture
+          source(type="image/webp" srcset="./assets/img/company-img.webp 1x, ./assets/img/company-img@2x.webp 2x")
+          img(src="./assets/img/company-img.jpg" srcset="./assets/img/company-img@2x.jpg 2x" alt="О компании" width="480" height="600")
+
 

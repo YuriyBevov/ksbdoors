@@ -70,7 +70,12 @@
               </ul><a class="lw-main-btn js-callback-modal-opener" href="#" data-modal-anchor="callback">Вызвать замерщика</a><small>*Выезд замерщика на объект в черте КАД бесплатный</small>
             </div>
             <div class="hero__content-side pattern-container">
-              <div class="pattern-wrapper"><img src="./assets/img/hero-img.jpg" alt="Изображение производства" width="740" height="540"></div>
+              <div class="pattern-wrapper">
+                <!--img(src="./assets/img/hero-img.jpg" alt="Изображение производства" width="740" height="540")-->
+                <picture>
+                  <source type="image/webp" srcset="./assets/img/hero-img.webp 1x, ./assets/img/hero-img@2x.webp 2x"><img src="./assets/img/hero-img.jpg" srcset="./assets/img/hero-img@2x.jpg 2x" alt="Изображение производства" width="740" height="540">
+                </picture>
+              </div>
             </div>
           </div>
         </div>
@@ -143,7 +148,11 @@
             </div><a class="lw-main-btn lw-section-btn js-callback-modal-opener" href="#" data-modal-anchor="callback">Связаться с менеджером</a>
           </div>
           <div class="company__side pattern-container">
-            <div class="pattern-wrapper"><img src="./assets/img/company-img.jpg" alt="О компании" width="480" height="600"></div>
+            <div class="pattern-wrapper">
+              <picture>
+                <source type="image/webp" srcset="./assets/img/company-img.webp 1x, ./assets/img/company-img@2x.webp 2x"><img src="./assets/img/company-img.jpg" srcset="./assets/img/company-img@2x.jpg 2x" alt="О компании" width="480" height="600">
+              </picture>
+            </div>
           </div>
         </div>
       </section>
@@ -397,7 +406,11 @@
                 </div>
               </form>
             </div>
-            <div class="offer__side offer__side--image-bg"><img src="./assets/img/offer-img.jpg" alt="Рассчитать стоимость" width="600" height="600"></div>
+            <div class="offer__side offer__side--image-bg">
+              <picture>
+                <source type="image/webp" srcset="./assets/img/offer-img.webp 1x, ./assets/img/offer-img@2x.webp 2x"><img src="./assets/img/offer-img.jpg" srcset="./assets/img/offer-img@2x.jpg 2x" alt="Рассчитать стоимость" width="600" height="600">
+              </picture>
+            </div>
           </div>
         </div>
       </section>
@@ -511,7 +524,7 @@
                             <input class="lw-main-input" type="tel" name="Телефон" placeholder="Телефон*" id="user_phone" data-required>
               </div>
               <div class="callback-form__footer">
-                <button class="lw-main-btn" type="submit">Рассчитать стоимость</button><small>Нажимая на кнопку вы соглашаетесь с&nbsp;<a href="#">обработкой персональных</a> данных.</small>
+                <button class="lw-main-btn" type="submit">Заказать звонок</button><small>Нажимая на кнопку вы соглашаетесь с&nbsp;<a href="#">обработкой персональных</a> данных.</small>
               </div>
             </form>
           </div>
