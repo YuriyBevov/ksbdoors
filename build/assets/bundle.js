@@ -686,10 +686,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 
   e.Modernizr = Modernizr;
 }(window, document);
-
-(function () {
-  Modernizr.on('webp', function () {});
-})();
+Modernizr.on('webp', function () {});
 
 /***/ }),
 

@@ -1,0 +1,31 @@
+.webp .hero__underlay-bg {
+  background-image: url("../assets/img/hero-bg.webp");
+
+  @media (min-resolution: var(--retina-dppx) ) and (min-resolution: (--retina-dpi) ) {
+    background-image: url("../assets/img/hero-bg2x.webp");
+  }
+}
+
+.no-webp .hero__underlay-bg {
+  background-image: url("../assets/img/hero-bg.png");
+
+  @media (min-resolution: var(--retina-dppx) ) and (min-resolution: var(--retina-dpi) ) {
+    background-image: url("../assets/img/hero-bg2x.png");
+  }
+}
+
+.webp .offer {
+  background-image: url("../assets/img/offer-bg.webp");
+
+  @media (min-resolution: var(--retina-dppx) ) and (min-resolution: (--retina-dpi) ) {
+    background-image: url("../assets/img/offer-bg2x.webp");
+  }
+}
+
+.no-webp .offer {
+  background-image: url("../assets/img/offer-bg.png");
+
+  @media (min-resolution: var(--retina-dppx) ) and (min-resolution: var(--retina-dpi) ) {
+    background-image: url("../assets/img/offer-bg2x.png");
+  }
+}

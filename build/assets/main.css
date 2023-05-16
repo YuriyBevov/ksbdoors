@@ -3779,6 +3779,42 @@ address {
 }
 
 /* Компоненты */
+.webp .hero__underlay-bg {
+  background-image: url("../assets/img/hero-bg.webp");
+}
+@media (min-resolution: var(--retina-dppx)) and (min-resolution: --retina-dpi) {
+  .webp .hero__underlay-bg {
+    background-image: url("../assets/img/hero-bg2x.webp");
+  }
+}
+
+.no-webp .hero__underlay-bg {
+  background-image: url("../assets/img/hero-bg.png");
+}
+@media (min-resolution: var(--retina-dppx)) and (min-resolution: var(--retina-dpi)) {
+  .no-webp .hero__underlay-bg {
+    background-image: url("../assets/img/hero-bg2x.png");
+  }
+}
+
+.webp .offer {
+  background-image: url("../assets/img/offer-bg.webp");
+}
+@media (min-resolution: var(--retina-dppx)) and (min-resolution: --retina-dpi) {
+  .webp .offer {
+    background-image: url("../assets/img/offer-bg2x.webp");
+  }
+}
+
+.no-webp .offer {
+  background-image: url("../assets/img/offer-bg.png");
+}
+@media (min-resolution: var(--retina-dppx)) and (min-resolution: var(--retina-dpi)) {
+  .no-webp .offer {
+    background-image: url("../assets/img/offer-bg2x.png");
+  }
+}
+
 .company-rights {
   font-size: 12px;
   color: var(--white);
@@ -4233,26 +4269,9 @@ address {
   left: 0;
   width: 70%;
   height: 100%;
-  background-image: url("../assets/img/hero-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 0;
-}
-.hero__underlay-bg .webp {
-  background-image: url("../assets/img/hero-bg.webp");
-}
-@media (min-resolution: var(--retina-dppx)) and (min-resolution: --retina-dpi) {
-  .hero__underlay-bg .webp {
-    background-image: url("../assets/img/hero-bg2x.webp");
-  }
-}
-.hero__underlay-bg .no-webp {
-  background-image: url("../assets/img/hero-bg.png");
-}
-@media (min-resolution: var(--retina-dppx)) and (min-resolution: var(--retina-dpi)) {
-  .hero__underlay-bg .no-webp {
-    background-image: url("../assets/img/hero-bg2x.png");
-  }
 }
 @media (max-width: 959px) {
   .hero__underlay-bg {
@@ -4711,7 +4730,6 @@ address {
 }
 
 .offer {
-  background-image: url("../assets/img/offer-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
 }

@@ -36,4 +36,6 @@ section.delivery#delivery
 
     .delivery__side.pattern-container
       .pattern-wrapper
-        img(src="./assets/img/map-img.jpg" alt="Доставка в черте города - бесплатно" width="600" height="600")
+        picture
+          source(type="image/webp" srcset="./assets/img/map-img.webp 1x, ./assets/img/map-img@2x.webp 2x")
+          img(src="./assets/img/map-img.jpg" srcset="./assets/img/map-img@2x.jpg 2x" alt="Доставка в черте города - бесплатно" width="600" height="600")

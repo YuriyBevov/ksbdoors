@@ -10,26 +10,9 @@
     width: 70%;
     height: 100%;
 
-    background-image: url("../assets/img/hero-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 0;
-
-    & .webp {
-      background-image: url("../assets/img/hero-bg.webp");
-
-      @media (min-resolution: var(--retina-dppx) ) and (min-resolution: (--retina-dpi) ) {
-        background-image: url("../assets/img/hero-bg2x.webp");
-      }
-    }
-
-    & .no-webp {
-      background-image: url("../assets/img/hero-bg.png");
-
-      @media (min-resolution: var(--retina-dppx) ) and (min-resolution: var(--retina-dpi) ) {
-        background-image: url("../assets/img/hero-bg2x.png");
-      }
-    }
 
     @include m-b-tablet-lg-down {
       width: 100%;
