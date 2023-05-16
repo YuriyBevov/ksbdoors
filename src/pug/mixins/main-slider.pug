@@ -3,8 +3,12 @@ mixin main-slider(data)
     .swiper-wrapper
       each slide in data.slides
         .swiper-slide.main-slider-slide
-          img(src=`./assets/img/${slide.img}` alt= slide.txt width= slide.imgWidth height= slide.imgHeight data-fancybox-item)
-          span(data-fancybox-caption= data.fancyboxGallery ? slide.txt : null data-limit= slide.limitStr ? slide.limitStr : null class= slide.limitStr ? 'js-limited-str' : null)!= slide.txt
+          picture
+            source(type="image/webp" srcset=`./assets/img/${slide.img}.webp 1x, ./assets/img/${slide.img}@2x.webp 2x`)
+            img(src=`./assets/img/${slide.img}.jpg` srcset=`./assets/img/${slide.img}@2x.jpg 2x` alt= slide.txt ? slide.txt : 'Наши работы' width= slide.imgWidth height= slide.imgHeight data-fancybox-item)
+
+          if slide.txt
+            span(data-fancybox-caption= data.fancyboxGallery ? slide.txt : null data-limit= slide.limitStr ? slide.limitStr : null class= slide.limitStr ? 'js-limited-str' : null)!= slide.txt
 
     .main-slider-controls
       .main-slider-button-prev
