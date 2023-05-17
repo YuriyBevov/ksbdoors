@@ -1,4 +1,4 @@
-import Swiper, { Navigation, Pagination } from 'swiper';
+import {Swiper, Navigation, Pagination } from 'swiper';
 
 const sliders = document.querySelectorAll('.main-slider');
 

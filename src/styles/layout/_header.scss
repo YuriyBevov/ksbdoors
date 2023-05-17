@@ -5,10 +5,6 @@
   background-color: var(--black);
   z-index: 5;
 
-  @include m-b-mobile-lg-down {
-    padding: 15px 0;
-  }
-
   &__container {
     @extend .flex-wrap;
     align-items: center;
