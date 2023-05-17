@@ -44,7 +44,7 @@ if(galleries) {
 
     items.forEach(item => {
       item.setAttribute('data-fancybox', collection);
-      const caption = item.parentNode.querySelector('[data-fancybox-caption]');
+      const caption = item.parentNode.parentNode.querySelector('[data-fancybox-caption]');
 
       if(caption) {
         item.setAttribute('data-caption', caption.dataset.fancyboxCaption);
