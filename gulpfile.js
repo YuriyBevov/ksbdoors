@@ -247,11 +247,11 @@ const images = () => {
   return src(PATHS.images.src)
   .pipe(gulpif(isProd, imagemin([
     imagemin.mozjpeg({
-      quality: 80,
+      quality: 75,
       progressive: true
     }),
     imagemin.optipng({
-      optimizationLevel: 2
+      optimizationLevel: 3
     }),
   ])))
   .pipe(dest(PATHS.images.dest))
