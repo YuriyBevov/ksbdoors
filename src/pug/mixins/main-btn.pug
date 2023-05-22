@@ -1,8 +1,8 @@
 mixin main-btn(data)
   if data.url
-    a.lw-main-btn(href= data.url class = data.cls ? data.cls : null data-modal-anchor= data.modal ? data.modal : null)!= data.title
+    a.lw-main-btn(href= data.url class = data.cls ? data.cls : null data-modal-anchor= data.modal ? data.modal : null data-modal-title= data.dataModalTitle ? data.dataModalTitle : null data-modal-text= data.dataModalText ? data.dataModalText : null)!= data.title
   else
-    button.lw-main-btn(class = data.cls ? data.cls : null data-modal-anchor= data.modal ? data.modal : null)!= data.title
+    button.lw-main-btn(class = data.cls ? data.cls : null data-modal-anchor= data.modal ? data.modal : null data-modal-title= data.dataModalTitle ? data.dataModalTitle : null data-modal-text= data.dataModalText ? data.dataModalText : null)!= data.title
 
   if data.notice
     small!= data.notice

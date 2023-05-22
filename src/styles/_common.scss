@@ -14,18 +14,18 @@
 
   &-section-title {
     font-weight: 600;
-    font-size: 50px;
+    font-size: 48px;
     margin-top: 0;
     margin-bottom: 60px;
     color: var(--text-color);
 
-    @include m-b-laptop-down {
+    @include m-b-down(1140px) {
       font-size: 40px;
       margin-bottom: 40px;
     }
 
     @include m-b-mobile-lg-down {
-      font-size: 30px;
+      font-size: 24px;
       margin-bottom: 30px;
     }
 

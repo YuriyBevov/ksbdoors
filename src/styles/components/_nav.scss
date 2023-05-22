@@ -46,6 +46,14 @@
 
   &__line {
     display: none;
+
+    @include m-b-down(1280px) {
+      display: block;
+      margin: 10px 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--accent);
+    }
   }
 
   &__info {

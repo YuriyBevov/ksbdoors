@@ -1,7 +1,7 @@
 .header{
   position: sticky;
   top: 0;
-  padding: 20px 0;
+  padding: 10px 0;
   background-color: var(--black);
   z-index: 5;
 
@@ -15,9 +15,6 @@
 
     @include m-b-down(1280px) {
       margin-right: auto;
-    }
-
-    @include m-b-mobile-lg-down {
       width: 160px;
       height: auto;
     }
@@ -51,17 +48,6 @@
 
         &::before {
           display: none;
-        }
-      }
-
-      &__line {
-        @include m-b-down(1280px) {
-          display: block;
-          margin-top: 20px;
-          width: 100%;
-          height: 1px;
-          background-color: var(--accent);
-          margin-bottom: 20px;
         }
       }
     }
