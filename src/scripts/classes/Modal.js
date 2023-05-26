@@ -137,20 +137,25 @@ export class Modal {
   }
 
   openModal = (evt) => {
-    console.log(evt.target, this.modal);
     let title = this.modal.querySelector('.lw-section-title');
     let desc = this.modal.querySelector('.modal__header-text');
+    let formName = this.modal.querySelector('input[type="hidden"]');
 
-    if(evt.currentTarget.dataset.modalTitle) {
-      title.innerHTML = evt.currentTarget.dataset.modalTitle;
-    } else {
-      title.innerHTML = 'Связаться с менеджером';
+    if(title) {
+      if(evt.currentTarget.dataset.modalTitle) {
+        title.innerHTML = evt.currentTarget.dataset.modalTitle;
+        formName.value = title.innerText;
+      } else {
+        title.innerHTML = 'Связаться с менеджером';
+      }
     }
 
-    if(evt.currentTarget.dataset.modalText) {
-      desc.innerHTML = evt.currentTarget.dataset.modalText;
-    } else {
-      desc.innerHTML = 'Заполните форму, и мы перезвоним Вам'
+    if(desc) {
+      if(evt.currentTarget.dataset.modalText) {
+        desc.innerHTML = evt.currentTarget.dataset.modalText;
+      } else {
+        desc.innerHTML = 'Заполните форму, и мы перезвоним Вам'
+      }
     }
 
     evt.preventDefault();

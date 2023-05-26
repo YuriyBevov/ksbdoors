@@ -1,0 +1,22 @@
+.law-modal {
+  &__title {
+    font-size: 18px;
+    padding-right: 60px;
+  }
+  .modal__content {
+    padding-top: 0;
+    max-width: 760px;
+    height: fit-content;
+    max-height: 75vh;
+  }
+  .modal__header {
+    position: sticky;
+    top: 0;
+    padding: 20px 0;
+    background-color: var(--white);
+  }
+
+  .modal-closer {
+    right: 0;
+  }
+}

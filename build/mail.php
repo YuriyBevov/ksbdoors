@@ -30,6 +30,7 @@ try {
   $mail->isSMTP();
   $mail->CharSet = "UTF-8";
   $mail->SMTPAuth   = true;
+  //$mail->SMTPDebug = 2;
 
   // Настройки вашей почты
   $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты

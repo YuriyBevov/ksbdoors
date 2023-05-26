@@ -2,6 +2,8 @@ include ../mixins/main-input
 include ../mixins/custom-select
 
 form(action='mail.php' id="offer-form").offer-form
+  <input type="hidden" name="Заполненная форма" value="Рассчитать стоимость" id="offer-form-title">
+  <input type="hidden" name="Тип двери" value="" id="callback-form-door-type">
   .offer-form__field
     +custom-select({
       id: 'door_type',
@@ -49,4 +51,4 @@ form(action='mail.php' id="offer-form").offer-form
 
   .offer-form__footer
     button(type="submit").lw-main-btn Рассчитать стоимость
-    small Нажимая на кнопку вы соглашаетесь с&nbsp;<a href="#">обработкой персональных</a> данных.
+    small Нажимая на кнопку вы соглашаетесь с&nbsp;<a href="#" data-modal-anchor="law">обработкой персональных</a> данных.

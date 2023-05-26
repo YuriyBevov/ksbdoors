@@ -131,7 +131,7 @@
 
       span {
         display: block;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
       }
 
       @include m-b-tablet-lg-down {
@@ -156,11 +156,11 @@
 
         &::before {
           position: absolute;
-          top: 9px;
+          top: 7px;
           left: 0;
           content: '';
-          width: 10px;
-          height: 2px;
+          width: 5px;
+          height: 5px;
           background-color: var(--white);
 
         }
@@ -172,6 +172,10 @@
       &:hover,
       &:focus {
         color: var(--accent);
+      }
+
+      & + small {
+        color: var(--warning);
       }
     }
   }

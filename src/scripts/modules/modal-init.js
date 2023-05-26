@@ -1,7 +1,8 @@
 import { Modal } from "../classes/Modal";
 
-const modal = document.querySelector('#callback');
-
-if(modal) {
-  new Modal(modal);
+const modals = document.querySelectorAll('.modal');
+if(modals) {
+  modals.forEach(modal => {
+    new Modal(modal);
+  });
 }

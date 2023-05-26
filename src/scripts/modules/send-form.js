@@ -18,12 +18,10 @@ export function sendForm(form) {
   }
 
   function error() {
-    setTimeout(() => {
-      hideLoader();
-      new Modal(errorModal, {
-        preventBodyLock: true
-      }).show();
-    }, 2000);
+    hideLoader();
+    new Modal(errorModal, {
+      preventBodyLock: true
+    }).show();
   }
 
   // handle the form submission event
@@ -38,11 +36,7 @@ export function sendForm(form) {
     xhr.onreadystatechange = function() {
       if (xhr.readyState !== XMLHttpRequest.DONE) return;
       if (xhr.status === 200) {
-        if(xhr.response.indexOf('SUCCESS') > -1) {
-          success(xhr.response, xhr.responseType);
-        } else {
-          error(xhr.status, xhr.response, xhr.responseType);
-        }
+        success(xhr.response, xhr.responseType);
       } else {
         error(xhr.status, xhr.response, xhr.responseType);
       }
