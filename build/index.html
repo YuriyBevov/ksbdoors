@@ -392,7 +392,8 @@
             <div class="offer__side offer__side--form-container">
                     <h2 class="lw-section-title">Рассчитать <span>стоимость</span></h2>
               <p class="offer__desc">Заполните форму, и&nbsp;мы свяжемся с&nbsp;Вами для&nbsp;уточнения деталей и&nbsp;расчета стоимости изделий.</p>
-              <form class="offer-form" action="mail.php" id="offer-form"><input type="hidden" name="Заполненная форма" value="Рассчитать стоимость" id="offer-form-title">
+              <form class="offer-form" action="mail.php" id="offer-form"><input type="hidden" class="g-recaptcha-response" name="recaptcha">
+<input type="hidden" name="Заполненная форма" value="Рассчитать стоимость" id="offer-form-title">
 <input type="hidden" name="Тип двери" value="" id="callback-form-door-type">
                 <div class="offer-form__field">
                                 <select class="common-custom-select" id="door_type">
@@ -884,6 +885,6 @@
         </div>
       </div>
     </div>
-    <script async src="https://api-maps.yandex.ru/2.1/?apikey=4aa8fccd-d097-4486-835a-704db2b05b2e&amp;lang=ru_RU"></script>
+    <script async src="https://api-maps.yandex.ru/2.1/?apikey=4aa8fccd-d097-4486-835a-704db2b05b2e&amp;lang=ru_RU"></script><script defer src="https://www.google.com/recaptcha/api.js?render=6LeqNNwpAAAAAH2YKw4fN1eeEsKZXSYm8Q_NgCcu"></script>
   </body>
 </html>

@@ -7,8 +7,6 @@
 @import "extends";
 @import "common";
 
-
-
 @import "./layout/header";
 
 /* Компоненты */
@@ -35,7 +33,7 @@
 @import "./views/index-page/licenses"; // empty
 @import "./views/index-page/delivery";
 @import "./views/index-page/offer";
-@import "./views/index-page/objects";
+@import "./views/index-page/objects"; // empty
 @import "./views/index-page/contacts";
 /* Секции конец*/
 
@@ -46,4 +44,3 @@
 @import "./modals/callback-modal";
 @import "./modals/state-modal";
 @import "./modals/law-modal";
-

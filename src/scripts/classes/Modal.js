@@ -25,7 +25,6 @@ export class Modal {
       '[tabindex]:not([tabindex^="-"])'
     ];
     this.init();
-    //this.tl = gsap.timeline();
   }
 
   bodyLocker = (bool) => {

@@ -26,45 +26,71 @@ $body = "<table style='width: 100%;'>$body</table>";
 // Настройки PHPMailer
 $mail = new PHPMailer\PHPMailer\PHPMailer();
 
-try {
-  $mail->isSMTP();
-  $mail->CharSet = "UTF-8";
-  $mail->SMTPAuth   = true;
-  //$mail->SMTPDebug = 2;
 
-  // Настройки вашей почты
-  $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
-  $mail->Username   = ''; // Логин на почте
-  $mail->Password   = ''; // Пароль на почте
-  $mail->SMTPSecure = 'ssl';
-  $mail->Port       = 465;
+$GOOGLE_RECAPTHCA_V_3_SECRET_KEY = "6LeqNNwpAAAAAHYtv7gtbMkZEJB6pPW2n44U8T7V";
+$GOOGLE_RECAPTHCA_V_3_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
 
-  $mail->setFrom('', 'Заявка с вашего сайта'); // Адрес самой почты и имя отправителя
+$recaptcha_params = array(
+  'secret' => $GOOGLE_RECAPTHCA_V_3_SECRET_KEY,
+  'response' => $_POST['recaptcha'],
+);
 
-  // Получатель письма
-  $mail->addAddress('');
+$ch = curl_init($GOOGLE_RECAPTHCA_V_3_VERIFY_URL);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $recaptcha_params);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$response = curl_exec($ch);
 
-  // Прикрипление файлов к письму
-  if (!empty($file['name'][0])) {
-    for ($ct = 0; $ct < count($file['tmp_name']); $ct++) {
-      $uploadfile = tempnam(sys_get_temp_dir(), sha1($file['name'][$ct]));
-      $filename = $file['name'][$ct];
-      if (move_uploaded_file($file['tmp_name'][$ct], $uploadfile)) {
-          $mail->addAttachment($uploadfile, $filename);
-          $rfile[] = "Файл $filename прикреплён";
-      } else {
-          $rfile[] = "Не удалось прикрепить файл $filename";
+if (!empty($response)) {
+  $decoded_response = json_decode($response);
+}
+
+if ($decoded_response && $decoded_response->score > 0.5) {
+
+  try {
+    $mail->isSMTP();
+    $mail->CharSet = "UTF-8";
+    $mail->SMTPAuth   = true;
+    //$mail->SMTPDebug = 2;
+
+    // Настройки вашей почты
+    $mail->Host       = 'smtp.gmail.com'; // SMTP сервера вашей почты
+    $mail->Username   = ''; // Логин на почте
+    $mail->Password   = ''; // Пароль на почте
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port       = 465;
+
+    $mail->setFrom('', 'Заявка с вашего сайта'); // Адрес самой почты и имя отправителя
+
+    // Получатель письма
+    $mail->addAddress('');
+
+    // Прикрипление файлов к письму
+    if (!empty($file['name'][0])) {
+      for ($ct = 0; $ct < count($file['tmp_name']); $ct++) {
+        $uploadfile = tempnam(sys_get_temp_dir(), sha1($file['name'][$ct]));
+        $filename = $file['name'][$ct];
+        if (move_uploaded_file($file['tmp_name'][$ct], $uploadfile)) {
+            $mail->addAttachment($uploadfile, $filename);
+            $rfile[] = "Файл $filename прикреплён";
+        } else {
+            $rfile[] = "Не удалось прикрепить файл $filename";
+        }
       }
     }
+
+    // Отправка сообщения
+    $mail->isHTML(true);
+    $mail->Subject = $title;
+    $mail->Body = $body;
+
+    $mail->send();
+
+  } catch (Exception $e) {
+    $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
   }
-
-  // Отправка сообщения
-  $mail->isHTML(true);
-  $mail->Subject = $title;
-  $mail->Body = $body;
-
-  $mail->send();
-
-} catch (Exception $e) {
-  $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
+} else {
+  echo json_encode(['STATUS'=>'ERROR', 'MESSAGE' => 'Проверка капчи не пройдена']);
 }
