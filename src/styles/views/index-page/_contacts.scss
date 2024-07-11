@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
 
-  @include m-b-tablet-lg-down {
+  @include m-b-desktop-down {
     position: static;
     height: 600px;
   }
@@ -49,7 +49,7 @@
 .contacts {
   position: relative;
 
-  @include m-b-tablet-lg-down {
+  @include m-b-desktop-down {
     padding-bottom: 0;
   }
 
@@ -64,7 +64,7 @@
     width: fit-content;
     background-color: var(--white);
 
-    @include m-b-tablet-lg-down {
+    @include m-b-desktop-down {
       padding: 0;
       width: 100%;
       margin-bottom: 40px;

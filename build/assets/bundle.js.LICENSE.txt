@@ -43,6 +43,3 @@
  * JavaScript is all like "You images are done yet or what?"
  * MIT License
  */
-
-/*! modernizr 3.6.0 (Custom Build) | MIT *
-* https://modernizr.com/download/?-webp-setclasses !*/

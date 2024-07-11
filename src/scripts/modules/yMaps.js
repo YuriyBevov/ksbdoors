@@ -23,7 +23,7 @@ if(map) {
       mapInited = true;
       ymaps.ready(init);
     } else {
-      myMap.setCenter(coords, 14, {
+      myMap.setCenter(coords, 11, {
         checkZoomRange: true
       });
     }
@@ -56,7 +56,7 @@ if(map) {
       // Создание карты.
       myMap = new ymaps.Map("yMaps", {
           center: currentCoords,
-          zoom: 14,
+          zoom: 11,
           controls: [],
           behaviors: ['drag'],
       });
@@ -67,7 +67,7 @@ if(map) {
 
       // Метка
       const officePlacemark = new ymaps.Placemark(
-        [59.90297506420561, 30.39827949999997], {
+        [59.916892564210336,30.32883049999989], {
           iconContent: 'Офис продаж',
         }, {
         // Опции.
